@@ -1,0 +1,31 @@
+/* Generated from Figma Variables. First mode = :root default.
+   FLOAT tokens are unitless — multiply by 1px in calc() where a length is needed. */
+
+:root {
+  --background-brand-default: var(--brand-800); /* @kind color */
+  --background-default-default: var(--white-1000); /* @kind color */
+  --brand-100: rgb(245,245,245); /* @kind color */
+  --brand-800: rgb(44,44,44); /* @kind color */
+  --family-sans: "Inter";
+  --gray-400: rgb(179,179,179); /* @kind color */
+  --gray-900: rgb(30,30,30); /* @kind color */
+  --icon-default-default: var(--gray-900); /* @kind color */
+  --miscellaneous-kit-section-fill: rgb(245,245,245); /* @kind color */
+  --mode: "Light";
+  --space-300: 12;
+  --stroke-border: 1;
+  --text-default-tertiary: var(--gray-400); /* @kind color */
+  --white-1000: rgb(255,255,255); /* @kind color */
+  --white-400: rgba(255,255,255,0.4); /* @kind color */
+}
+
+:root[data-theme="dark"], .dark {
+  --background-brand-default: var(--brand-100); /* @kind color */
+  --background-default-default: var(--gray-900); /* @kind color */
+  --icon-default-default: var(--white-1000); /* @kind color */
+  --miscellaneous-kit-section-fill: rgb(245,245,245); /* @kind color */
+  --miscellaneous-kit-section-fill: rgb(245,245,245); /* @kind color */
+  --mode: "Dark Elevated";
+  --mode: "Dark";
+  --text-default-tertiary: var(--white-400); /* @kind color */
+}

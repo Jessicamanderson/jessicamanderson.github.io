@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+</helmet>
+<div style="position: relative; width: 393px; height: 852px; overflow: hidden; background: {{ v.bg }}; font-family: 'Open Sans', sans-serif; color: #1c1b22; display: flex; flex-direction: column;">
+  <div style="flex: 0 0 auto; background: #a6377f; padding: {{ v.headPad }}; display: flex; flex-direction: column; align-items: {{ v.headAlign }}; gap: 4px;">
+    <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: {{ v.titleSize }}; line-height: 1.15; color: #ffffff;">{{ title }}</span>
+    <sc-if value="{{ v.headSub }}" hint-placeholder-val="{{ true }}"><span style="font-size: 14px; line-height: 1.4; color: #f7dcec;">{{ subtitle }}</span></sc-if>
+  </div>
+
+  <div style="flex: 1 1 auto; min-height: 0; overflow-y: auto; scrollbar-width: none;">
+    <sc-if value="{{ isDash }}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column; gap: 24px; padding: 20px 24px 32px;">
+        <sc-if value="{{ v.v3Sub }}" hint-placeholder-val="{{ false }}"><span style="font-size: 15px; color: #5c5b66; text-align: center;">Overview of your digital data footprint</span></sc-if>
+        <sc-if value="{{ v.stats }}" hint-placeholder-val="{{ true }}">
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); background: {{ v.statBg }}; border-radius: 12px; padding: 16px 8px;">
+          <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; padding: 0 4px;">
+              <span style="font-size: 12px; color: #5c5b66;">{{ s.k }}</span>
+              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 18px; line-height: 1.2; color: {{ s.color }};">{{ s.v }}</span>
+            </div>
+          </sc-for>
+        </div>
+        </sc-if>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <span style="font-family: 'Montserrat', sans-serif; font-weight: {{ v.secWeight }}; font-size: 20px; text-align: {{ v.secAlign }};">Data Security Levels</span>
+          <sc-for list="{{ levels }}" as="l" hint-placeholder-count="3">
+            <div style="display: grid; grid-template-columns: 116px minmax(0, 1fr); align-items: center; gap: 12px;">
+              <span style="display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600;"><span style="display: {{ v.markDisplay }}; width: 18px; height: 18px; border-radius: {{ l.radius }}; background: {{ l.color }}; color: {{ l.ink }}; font-size: 11px; font-weight: 700; align-items: center; justify-content: center; flex-shrink: 0;">{{ l.mark }}</span>{{ l.label }}</span>
+              <div style="height: 28px; border-radius: 8px; background: #f0f0f2; overflow: hidden;">
+                <div style="height: 100%; width: {{ l.pct }}; min-width: {{ v.minBar }}; background: {{ l.color }}; border-radius: 8px; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; box-sizing: border-box;">
+                  <sc-if value="{{ v.pcts }}" hint-placeholder-val="{{ true }}"><span style="font-size: 13px; font-weight: 700; color: {{ l.ink }};">{{ l.pct }}</span></sc-if>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+          <sc-if value="{{ v.legend }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-wrap: wrap; gap: 6px 14px;">
+              <sc-for list="{{ legend }}" as="lg" hint-placeholder-count="3"><span style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #5c5b66;"><span style="width: 12px; height: 12px; border-radius: 999px; background: {{ lg.c }};"></span>{{ lg.t }}</span></sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ v.updated }}" hint-placeholder-val="{{ true }}"><span style="font-size: 12px; font-style: italic; color: #5c5b66;">Last updated 2 hours ago</span></sc-if>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: {{ v.catSize }}; line-height: 1.15; text-align: {{ v.secAlign2 }};">Your Data Categories</span>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+            <sc-for list="{{ categories }}" as="c" hint-placeholder-count="4">
+              <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 8px; text-align: center; min-height: 132px; box-sizing: border-box; padding: 16px 10px; background: #f5f5f5; border: 1.5px solid #e2e2e6; border-radius: 12px;">
+                <span style="width: 44px; height: 44px; border-radius: 999px; background: {{ c.color }}; color: {{ c.ink }}; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 20px; line-height: 1; display: flex; align-items: center; justify-content: center;">{{ c.letter }}</span>
+                <span style="font-weight: 700; font-size: 15px; line-height: 1.25; min-height: 2.5em; display: flex; align-items: center; justify-content: center;">{{ c.name }}</span>
+                <span style="font-size: 13px; color: #5c5b66;">{{ c.count }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isManage }}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column; gap: 20px; padding: 20px 24px 32px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; height: 48px; box-sizing: border-box; padding: 0 16px; border: 1.5px solid #d6d6dc; border-radius: 12px; font-size: 15px; color: #5c5b66;">Filter By Category<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6 L8 11 L13 6" fill="none" stroke="#1c1b22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 20px;">Connected Sources</span>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <sc-for list="{{ sources }}" as="s" hint-placeholder-count="4">
+            <div style="display: flex; align-items: center; gap: 14px; padding: 14px 16px; background: #ffffff; border: 1.5px solid #e2e2e6; border-radius: 12px;">
+              <span style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 999px; background: {{ s.color }}; color: {{ s.ink }}; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 17px; display: flex; align-items: center; justify-content: center;">{{ s.letter }}</span>
+              <div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px;">
+                <span style="font-weight: 700; font-size: 15px; line-height: 1.2;">{{ s.name }}</span>
+                <span style="font-size: 12px; color: #5c5b66;">{{ s.sub }}</span>
+                <span style="align-self: flex-start; display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 700; color: {{ s.badgeInk }}; background: {{ s.badgeBg }}; border-radius: 999px; padding: 2px 8px 2px 6px;">{{ s.badgeMark }} {{ s.badge }}</span>
+              </div>
+              <span style="flex: 0 0 auto; width: 46px; height: 26px; border-radius: 999px; background: #c71585; position: relative;"><span style="position: absolute; right: 3px; top: 3px; width: 20px; height: 20px; border-radius: 999px; background: #ffffff;"></span></span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 4px;">
+          <span style="height: 48px; border-radius: 12px; background: #a6377f; color: #ffffff; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center;">Manage Data Permissions</span>
+          <span style="height: 48px; box-sizing: border-box; border-radius: 12px; border: 1.5px solid #a6377f; color: #a6377f; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 8px;"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M9 12 V2 M5 6 L9 2 L13 6 M3 11 V15 H15 V11" fill="none" stroke="#a6377f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Export my Data</span>
+          <span style="height: 48px; border-radius: 12px; background: #b3202f; color: #ffffff; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center;">Report Suspicious Activity</span>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isSettings }}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column; gap: 24px; padding: 20px 24px 32px;">
+        <sc-for list="{{ groups }}" as="g" hint-placeholder-count="4">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 18px;">{{ g.title }}</span>
+            <div style="display: flex; flex-direction: column; border: 1.5px solid #e2e2e6; border-radius: 12px; overflow: hidden;">
+              <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="3">
+                <div style="display: flex; align-items: center; gap: 12px; min-height: 64px; box-sizing: border-box; padding: 12px 16px; border-bottom: {{ r.rule }};">
+                  <div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px;">
+                    <span style="font-weight: 600; font-size: 15px; color: {{ r.ink }};">{{ r.name }}</span>
+                    <span style="font-size: 12px; color: #5c5b66;">{{ r.sub }}</span>
+                  </div>
+                  <sc-if value="{{ r.toggle }}" hint-placeholder-val="{{ false }}">
+                    <span style="flex: 0 0 auto; width: 46px; height: 26px; box-sizing: border-box; border-radius: 999px; background: {{ r.trackBg }}; border: {{ r.trackBorder }}; position: relative;"><span style="position: absolute; left: {{ r.knobLeft }}; top: 2px; width: 19px; height: 19px; border-radius: 999px; background: {{ r.knobBg }};"></span></span>
+                  </sc-if>
+                  <sc-if value="{{ r.value }}" hint-placeholder-val="{{ false }}">
+                    <span style="flex: 0 0 auto; font-size: 13px; font-weight: 600; color: #a6377f;">{{ r.value }} ›</span>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+  </div>
+
+  <sc-if value="{{ v.nav }}" hint-placeholder-val="{{ true }}">
+  <div style="flex: 0 0 auto; height: 84px; box-sizing: border-box; padding-bottom: 14px; border-top: 1px solid #e2e2e6; background: #ffffff; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));">
+    <sc-for list="{{ nav }}" as="n" hint-placeholder-count="3">
+      <div style="position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+        <span style="position: absolute; top: -1px; left: 50%; width: 56px; height: 3px; margin-left: -28px; border-radius: 0 0 3px 3px; background: {{ n.bar }};"></span>
+        <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="{{ n.icon }}" fill="none" stroke="{{ n.color }}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path></svg>
+        <span style="font-size: 12px; font-weight: {{ n.weight }}; color: {{ n.color }};">{{ n.label }}</span>
+      </div>
+    </sc-for>
+  </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:393,&quot;height&quot;:852},&quot;screen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dashboard&quot;,&quot;management&quot;,&quot;settings&quot;],&quot;default&quot;:&quot;dashboard&quot;,&quot;tsType&quot;:&quot;'dashboard' | 'management' | 'settings'&quot;},&quot;version&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;final&quot;,&quot;v1&quot;,&quot;v2&quot;,&quot;v3&quot;],&quot;default&quot;:&quot;final&quot;,&quot;tsType&quot;:&quot;'final' | 'v1' | 'v2' | 'v3'&quot;}}">
+const TOG = (on) => ({ toggle: true, trackBg: on ? '#c71585' : '#e9e9ed', trackBorder: on ? '0' : '1.5px solid #8d8c96', knobLeft: on ? '23px' : '2px', knobBg: on ? '#ffffff' : '#8d8c96' });
+const ICONS = {
+  dashboard: 'M5 5 H11 V11 H5 Z M15 5 H21 V11 H15 Z M5 15 H11 V21 H5 Z M15 15 H21 V21 H15 Z',
+  management: 'M13 3 L21 6 V12 C21 17 17.5 21 13 23 C8.5 21 5 17 5 12 V6 Z',
+  settings: 'M13 9.5 A3.5 3.5 0 1 0 13 16.5 A3.5 3.5 0 1 0 13 9.5 Z M13 3 V6 M13 20 V23 M3 13 H6 M20 13 H23 M5.9 5.9 L8 8 M18 18 L20.1 20.1 M5.9 20.1 L8 18 M18 8 L20.1 5.9',
+};
+class Component extends DCLogic {
+  renderVals() {
+    const screen = this.props.screen ?? 'dashboard';
+    const ver = this.props.version ?? 'final';
+    const old = ver !== 'final';
+    const v = {
+      bg: old ? '#fdeef3' : '#ffffff', headPad: old ? '48px 16px 16px' : '54px 24px 18px', headAlign: old ? 'center' : 'flex-start', titleSize: ver === 'v1' ? '36px' : (old ? '32px' : '28px'), headSub: !old,
+      v3Sub: ver === 'v3', stats: ver === 'v3' || !old, statBg: ver === 'v3' ? '#ffffff' : '#f5f5f5',
+      secWeight: ver === 'v1' ? 500 : 700, secAlign: ver === 'v1' ? 'center' : 'left', secAlign2: old ? 'center' : 'left', catSize: ver === 'v1' ? '30px' : (old ? '24px' : '20px'),
+      markDisplay: old ? 'none' : 'flex', pcts: !old, minBar: old ? '0px' : '48px', legend: ver === 'v3', updated: ver === 'v3' || !old, nav: !old,
+    };
+    const T = { dashboard: ['Data Dashboard', 'Overview of your digital data footprint'], management: ['Data Management', 'Source controls & permissions'], settings: ['Settings', 'Privacy & accessibility controls'] }[screen];
+    const rows = (list) => list.map((r, i) => ({ ink: '#1c1b22', toggle: false, value: '', ...r, rule: i === list.length - 1 ? '0' : '1px solid #ececf0' }));
+    return {
+      title: T[0], subtitle: T[1], v, legend: [{ c: '#90ee90', t: 'No security concerns' }, { c: '#3593dc', t: 'Moderate risk' }, { c: '#a6377f', t: 'At Risk' }],
+      isDash: screen === 'dashboard', isManage: screen === 'management', isSettings: screen === 'settings',
+      stats: [{ k: 'Total Entries', v: '5,725', color: '#1c1b22' }, { k: 'Status', v: '1 needs attention', color: '#a6377f' }, { k: 'Last Scan', v: '2 hrs ago', color: '#1c1b22' }],
+      levels: [
+        { label: 'Secure', pct: '65%', color: '#9fbf32', ink: '#1c1b22', mark: '✓', radius: '999px' },
+        { label: 'At Risk', pct: '25%', color: '#3593dc', ink: '#ffffff', mark: '!', radius: '4px' },
+        { label: 'Vulnerable', pct: '10%', color: '#a6377f', ink: '#ffffff', mark: '✕', radius: '4px 4px 4px 4px' },
+      ],
+      categories: [
+        { letter: 'L', name: 'Location Data', count: '245 entries', color: '#1f6fa8', ink: '#ffffff' },
+        { letter: 'C', name: 'Personal Communications', count: '1,847 entries', color: '#a6377f', ink: '#ffffff' },
+        { letter: 'B', name: 'Browsing Activity', count: '3,291 entries', color: '#3593dc', ink: '#ffffff' },
+        { letter: 'P', name: 'Photos & Media', count: '582 Files', color: '#9fbf32', ink: '#1c1b22' },
+      ],
+      sources: [
+        { letter: 'G', name: 'Google Services', sub: 'Last synced 2 hours ago', color: '#3593dc', ink: '#ffffff', badge: 'At Risk', badgeMark: '!', badgeBg: '#fff1c2', badgeInk: '#6b4e00' },
+        { letter: 'S', name: 'Social Media Apps', sub: 'Last synced 5 hours ago', color: '#a6377f', ink: '#ffffff', badge: 'Secure', badgeMark: '✓', badgeBg: '#e1f2d6', badgeInk: '#2d5a12' },
+        { letter: 'C', name: 'Cloud Storage', sub: 'Last synced 1 day ago', color: '#9fbf32', ink: '#1c1b22', badge: 'Secure', badgeMark: '✓', badgeBg: '#e1f2d6', badgeInk: '#2d5a12' },
+        { letter: 'D', name: 'Mobile Device', sub: 'Always connected', color: '#6e6d78', ink: '#ffffff', badge: 'Secure', badgeMark: '✓', badgeBg: '#e1f2d6', badgeInk: '#2d5a12' },
+      ],
+      groups: [
+        { title: 'Privacy Controls', rows: rows([{ name: 'Data Encryption', sub: 'Encrypt all stored data', ...TOG(true) }, { name: 'Auto-Delete Old Data', sub: 'Remove data older than 90 days', ...TOG(false) }, { name: 'Share Analytics', sub: 'Help improve the app', ...TOG(true) }]) },
+        { title: 'Accessibility', rows: rows([{ name: 'High Contrast Mode', sub: 'Increase color contrast', ...TOG(false) }, { name: 'Text Size', sub: 'Adjust reading size', value: 'Medium' }]) },
+        { title: 'Notifications', rows: rows([{ name: 'Data Activity Alerts', sub: 'Notify me of new data imports', ...TOG(true) }, { name: 'Security Alerts', sub: 'Alert me to unusual activity', ...TOG(true) }, { name: 'Notification Method', sub: 'How we reach you', value: 'Email' }]) },
+        { title: 'Account', rows: rows([{ name: 'Export My Data', sub: 'Download a copy of your data', value: ' ' }, { name: 'Delete Account', sub: 'Permanently remove all data', ink: '#b3202f' }]) },
+      ],
+      nav: ['dashboard', 'management', 'settings'].map((k) => { const on = k === screen; return { label: k[0].toUpperCase() + k.slice(1), icon: ICONS[k], color: on ? '#a6377f' : '#6e6d78', weight: on ? 700 : 400, bar: on ? '#a6377f' : 'transparent' }; }),
+    };
+  }
+}
+</script>
+</body>
+</html>

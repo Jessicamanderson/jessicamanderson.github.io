@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Roboto:wght@400;500&family=Karla:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="components/data-dignity/fig-assets.css">
+<style>
+  body { margin: 0; background: #fdebd4; }
+  a { color: #383f5c; text-decoration: none; }
+  a:hover { color: #1f2438; }
+</style>
+</helmet>
+<div data-screen-label="Home" style="background: #fdebd4; min-height: 100vh; font-family: 'Roboto', system-ui, sans-serif; color: #383f5c;">
+  <div style="max-width: 1120px; margin: 0 auto; padding: 48px clamp(20px, 5vw, 40px) 0; display: flex; flex-direction: column; position: relative; z-index: 1;">
+
+    <section data-screen-label="Hero" style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center; position: relative;">
+      <img src="assets/hero.png" alt="Jessica on a desert trail beside a saguaro" style="flex: 1 1 360px; min-width: 0; max-width: 520px; aspect-ratio: 568 / 754; object-fit: cover; display: block;">
+      <div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 24px; position: relative;">
+        <div style="display: flex; align-items: center; gap: 14px; margin-left: clamp(-82px, calc(908px - 100vw), 0px);">
+          <span style="width: 68px; height: 3px; background: #383f5c; flex-shrink: 0;"></span>
+          <h1 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(44px, 5.2vw, 68px); line-height: 1.05; margin: 0; color: #383f5c; letter-spacing: -0.01em;">Jessica Anderson</h1>
+        </div>
+        <p style="font-size: 20px; line-height: 1.5; color: #7d7c90; margin: 0; max-width: 480px; text-wrap: pretty;">UX designer passionate about creating meaningful designs that delight and inspire. My years of experience teaching tiny humans filled my vault with skills that make me a great UX designer.</p>
+        <nav style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <a href="About%20v2.dc.html" style="font-family: 'Karla', sans-serif; font-weight: 500; font-size: 15px; color: #383f5c; background: transparent; box-shadow: inset 0 0 0 1.5px #383f5c; border-radius: 999px; padding: 9px 18px;" style-hover="background: #383f5c; color: #fdebd4;">About</a>
+          <a href="Resume.dc.html" style="font-family: 'Karla', sans-serif; font-weight: 500; font-size: 15px; color: #383f5c; background: transparent; box-shadow: inset 0 0 0 1.5px #383f5c; border-radius: 999px; padding: 9px 18px;" style-hover="background: #383f5c; color: #fdebd4;">Resume</a>
+          <a href="https://www.linkedin.com/in/jessanders/" target="_blank" rel="noopener" style="font-family: 'Karla', sans-serif; font-weight: 500; font-size: 15px; color: #383f5c; background: transparent; box-shadow: inset 0 0 0 1.5px #383f5c; border-radius: 999px; padding: 9px 18px;" style-hover="background: #383f5c; color: #fdebd4;">Let's Chat!</a>
+        </nav>
+      </div>
+    </section>
+
+    <section data-screen-label="Work" style="display: flex; flex-direction: column; gap: 140px; padding: 160px 0 120px;">
+      <a href="Pearl%20Case%20Study.dc.html" style="display: flex; flex-wrap: wrap; gap: 64px; align-items: center; color: inherit;">
+        <img src="assets/pearl.png" alt="Pearl portfolio builder on a laptop" style="flex: 1.2 1 380px; min-width: 0; display: block; transition: transform 0.35s ease;" style-hover="transform: scale(1.05);">
+        <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 10px;">
+          <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 30px; margin: 0; color: #383f5c;">SAAS Platform for Job Seekers</h2>
+          <p style="font-size: 17px; color: #7d7c90; margin: 0;">Portfolio Building Website</p>
+          <span style="align-self: flex-start; margin-top: 14px; font-family: 'Karla', sans-serif; font-weight: 600; font-size: 15px; color: #ffffff; background: #383f5c; border-radius: 999px; padding: 11px 22px;" style-hover="background: #2b3148;">View case study →</span>
+        </div>
+      </a>
+      <a href="Moleskine%20Case%20Study.dc.html" style="display: flex; flex-wrap: wrap-reverse; gap: 64px; align-items: center; color: inherit;">
+        <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 10px;">
+          <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 30px; margin: 0; color: #383f5c;">Moleskine</h2>
+          <p style="font-size: 17px; line-height: 1.5; color: #7d7c90; margin: 0; max-width: 420px; text-wrap: pretty;">A social network app brought to you by a company known for their analog notebooks</p>
+          <span style="align-self: flex-start; margin-top: 14px; font-family: 'Karla', sans-serif; font-weight: 600; font-size: 15px; color: #ffffff; background: #383f5c; border-radius: 999px; padding: 11px 22px;" style-hover="background: #2b3148;">View case study →</span>
+        </div>
+        <div style="flex: 1.2 1 380px; min-width: 0; display: flex; justify-content: center; padding: 24px 0;">
+          <div style="position: relative; width: 100%; max-width: 340px; box-sizing: border-box; padding: 4px; border-radius: 38px; background: linear-gradient(135deg, #6a6a70 0%, #2a2a2e 30%, #1b1b1d 60%, #4a4a50 100%); box-shadow: 0 1px 0 #2c2c30, 0 2px 0 #2c2c30, 0 3px 0 #2c2c30, 0 4px 0 #18181a, 0 5px 0 #18181a, 0 6px 0 #18181a, 0 7px 0 #18181a, 0 34px 50px rgba(196, 160, 112, 0.42), 0 10px 18px rgba(46, 43, 37, 0.16); transition: transform 0.35s ease;" style-hover="transform: scale(1.05);">
+            <span style="position: absolute; top: 46px; right: -3px; width: 3px; height: 34px; border-radius: 0 2px 2px 0; background: linear-gradient(90deg, #1b1b1d, #4a4a50);"></span>
+            <span style="position: absolute; top: 88px; right: -3px; width: 3px; height: 34px; border-radius: 0 2px 2px 0; background: linear-gradient(90deg, #1b1b1d, #4a4a50);"></span>
+            <span style="position: absolute; top: -3px; right: 52px; width: 38px; height: 3px; border-radius: 2px 2px 0 0; background: linear-gradient(0deg, #1b1b1d, #4a4a50);"></span>
+            <div style="position: relative; padding: 13px; border-radius: 34px; background: #111113; box-shadow: inset 0 0 0 1px #2a2a2d;">
+              <span style="position: absolute; top: 4px; left: 50%; width: 6px; height: 6px; margin-left: -3px; border-radius: 999px; background: #2e3340; box-shadow: inset 0 0 0 1.5px #0d0d0f;"></span>
+              <div style="position: relative; width: 100%; overflow: hidden; border-radius: 20px; background: #ffffff;">
+                <img src="assets/moleskine/hero-explore.png" alt="Moleskine Notes explore feed on a tablet" style="width: 100%; display: block;">
+                <span style="position: absolute; inset: 0; background: linear-gradient(120deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0) 34%); pointer-events: none;"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="Data%20Dignity%20Case%20Study.dc.html" style="display: flex; flex-wrap: wrap; gap: 64px; align-items: center; color: inherit;">
+        <div style="flex: 1.2 1 500px; min-width: 0; max-width: 100%; display: flex; justify-content: center; padding: 24px 0 40px; perspective: 1400px;">
+          <div style="display: flex; align-items: flex-start; transition: transform 0.45s ease; zoom: {{ phoneZoom }};" style-hover="transform: scale(1.05);">
+            <div style="position: relative; z-index: 1; flex: 0 0 auto; margin-top: 0px; margin-left: 0px; padding: 3px; border-radius: 30px; background: linear-gradient(135deg, #8a8a90 0%, #2a2a2e 30%, #1b1b1d 60%, #55555b 100%); box-shadow: 0 1px 0 #2c2c30, 0 2px 0 #2c2c30, 0 3px 0 #2c2c30, 0 4px 0 #18181a, 0 5px 0 #18181a, 0 6px 0 #18181a, 0 30px 40px rgba(120, 90, 50, 0.32), 0 8px 14px rgba(46, 43, 37, 0.22);">
+              <div style="padding: 5px; border-radius: 27px; background: #0f0f11;">
+                <div style="position: relative; width: 140px; height: 304px; overflow: hidden; border-radius: 22px; background: #ffffff;">
+                  <div style="position: absolute; left: 0; top: 0; width: 393px; height: 852px; transform: scale(0.3562); transform-origin: 0 0;">
+                    <dc-import name="Data Dignity Screen" screen="management" hint-size="393px,852px"></dc-import>
+                  </div>
+                  <span style="position: absolute; top: 7px; left: 50%; width: 42px; height: 12px; margin-left: -21px; border-radius: 999px; background: #0f0f11;"></span>
+                  <span style="position: absolute; inset: 0; background: linear-gradient(115deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 38%); pointer-events: none;"></span>
+                </div>
+              </div>
+            </div>
+            <div style="position: relative; z-index: 3; flex: 0 0 auto; margin-top: 70px; margin-left: -26px; padding: 3px; border-radius: 30px; background: linear-gradient(135deg, #8a8a90 0%, #2a2a2e 30%, #1b1b1d 60%, #55555b 100%); box-shadow: 0 1px 0 #2c2c30, 0 2px 0 #2c2c30, 0 3px 0 #2c2c30, 0 4px 0 #18181a, 0 5px 0 #18181a, 0 6px 0 #18181a, 0 30px 40px rgba(120, 90, 50, 0.32), 0 8px 14px rgba(46, 43, 37, 0.22);">
+              <div style="padding: 5px; border-radius: 27px; background: #0f0f11;">
+                <div style="position: relative; width: 140px; height: 304px; overflow: hidden; border-radius: 22px; background: #ffffff;">
+                  <div style="position: absolute; left: 0; top: 0; width: 393px; height: 852px; transform: scale(0.3562); transform-origin: 0 0;">
+                    <dc-import name="Data Dignity Screen" screen="dashboard" hint-size="393px,852px"></dc-import>
+                  </div>
+                  <span style="position: absolute; top: 7px; left: 50%; width: 42px; height: 12px; margin-left: -21px; border-radius: 999px; background: #0f0f11;"></span>
+                  <span style="position: absolute; inset: 0; background: linear-gradient(115deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 38%); pointer-events: none;"></span>
+                </div>
+              </div>
+            </div>
+            <div style="position: relative; z-index: 2; flex: 0 0 auto; margin-top: 30px; margin-left: -26px; padding: 3px; border-radius: 30px; background: linear-gradient(135deg, #8a8a90 0%, #2a2a2e 30%, #1b1b1d 60%, #55555b 100%); box-shadow: 0 1px 0 #2c2c30, 0 2px 0 #2c2c30, 0 3px 0 #2c2c30, 0 4px 0 #18181a, 0 5px 0 #18181a, 0 6px 0 #18181a, 0 30px 40px rgba(120, 90, 50, 0.32), 0 8px 14px rgba(46, 43, 37, 0.22);">
+              <div style="padding: 5px; border-radius: 27px; background: #0f0f11;">
+                <div style="position: relative; width: 140px; height: 304px; overflow: hidden; border-radius: 22px; background: #ffffff;">
+                  <div style="position: absolute; left: 0; top: 0; width: 393px; height: 852px; transform: scale(0.3562); transform-origin: 0 0;">
+                    <dc-import name="Data Dignity Screen" screen="settings" hint-size="393px,852px"></dc-import>
+                  </div>
+                  <span style="position: absolute; top: 7px; left: 50%; width: 42px; height: 12px; margin-left: -21px; border-radius: 999px; background: #0f0f11;"></span>
+                  <span style="position: absolute; inset: 0; background: linear-gradient(115deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 38%); pointer-events: none;"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 10px;">
+          <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 30px; margin: 0; color: #383f5c;">Data Dignity</h2>
+          <p style="font-size: 17px; line-height: 1.5; color: #7d7c90; margin: 0; max-width: 420px; text-wrap: pretty;">An accessibility-first mobile app that empowers people to see, understand, and control their personal data</p>
+          <span style="align-self: flex-start; margin-top: 14px; font-family: 'Karla', sans-serif; font-weight: 600; font-size: 15px; color: #ffffff; background: #383f5c; border-radius: 999px; padding: 11px 22px;" style-hover="background: #2b3148;">View case study →</span>
+        </div>
+      </a>
+    </section>
+
+    <section data-screen-label="Articles" style="border-top: 1.5px solid #8c8a99; padding: 18px 0 140px; display: flex; flex-direction: column; gap: 32px;">
+      <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 32px; margin: 0; color: #383f5c;">Articles</h2>
+      <a href="https://medium.com/@jessicamabrego/ethics-evaluation-nosedive-episode-ee4dbbbbaaf5" target="_blank" rel="noopener" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px 40px; padding: 4px 0 24px; border-bottom: 1.5px solid #8c8a99; color: #383f5c;" style-hover="border-bottom-color: #f2a7c3;">
+        <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 12px;">
+          <span style="font-family: 'Karla', sans-serif; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Medium · Design Ethics</span>
+          <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; margin: 0; color: #383f5c; text-wrap: pretty;">Ethics Evaluation: Nosedive</h3>
+          <p style="font-size: 15px; line-height: 1.55; color: #7d7c90; margin: 0; max-width: 560px; text-wrap: pretty;">An HCI ethics analysis of the fictional rating system in Black Mirror's Nosedive, evaluated through the frameworks of Friedman &amp; Kahn, Turkle, and Proctor &amp; Van Zandt. Published as a Medium article.</p>
+        </div>
+        <span style="flex: 0 0 auto; width: 56px; height: 56px; border-radius: 999px; background: #383f5c; color: #fdebd4; font-size: 22px; display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease, background 0.3s ease;" style-hover="transform: rotate(45deg); background: #f2a7c3;">↗</span>
+      </a>
+    </section>
+
+    <footer data-screen-label="Footer" style="display: flex; flex-direction: column; align-items: center; padding-top: 60px;">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; padding-bottom: 24px;">
+        <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: #6b6a7c; margin: 0;">Thanks for stopping by</p>
+        <a href="mailto:Jessicamabrego@gmail.com" style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 26px; color: #383f5c;">Jessicamabrego@gmail.com</a>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <a href="https://www.linkedin.com/in/jessanders/" target="_blank" rel="noopener" aria-label="LinkedIn" style="width: 40px; height: 40px; border-radius: 999px; display: flex; align-items: center; justify-content: center; color: #383f5c; transition: color 0.2s ease, background 0.2s ease;" style-hover="color: #fdebd4; background: #383f5c;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg></a>
+          <a href="mailto:Jessicamabrego@gmail.com" aria-label="Email" style="width: 40px; height: 40px; border-radius: 999px; display: flex; align-items: center; justify-content: center; color: #383f5c; transition: color 0.2s ease, background 0.2s ease;" style-hover="color: #fdebd4; background: #383f5c;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></a>
+        </div>
+      </div>
+      <div style="width: 100%; display: flex; justify-content: center; gap: 24px; padding: 28px 0 56px;">
+        <a href="Home.dc.html" style="font-family: 'Karla', sans-serif; font-size: 15px; color: #6b6a7c;" style-hover="color: #383f5c;">Home</a>
+        <a href="About%20v2.dc.html" style="font-family: 'Karla', sans-serif; font-size: 15px; color: #6b6a7c;" style-hover="color: #383f5c;">About</a>
+        <a href="Resume.dc.html" style="font-family: 'Karla', sans-serif; font-size: 15px; color: #6b6a7c;" style-hover="color: #383f5c;">Resume</a>
+      </div>
+    </footer>
+  </div>
+  <sc-if value="{{ showOcotillo }}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; right: 8px; bottom: 0; width: clamp(220px, calc((100vw - 1120px) / 2 + 80px), 390px); aspect-ratio: 230 / 330; pointer-events: none; z-index: 0;"><div style="position: absolute; left: -30%; right: -40%; bottom: -14px; height: 15%; border-radius: 50% 50% 0 0 / 100% 100% 0 0; background: #f3dfc9;"></div><div style="position: absolute; inset: 0;">{{ ocotillo }}</div><sc-if value="{{ showBarrel }}" hint-placeholder-val="{{ false }}"><div style="position: absolute; left: 33%; bottom: 0; width: 24%; aspect-ratio: 120 / 112;">{{ barrel }}</div></sc-if></div>
+    <sc-if value="{{ twoPlants }}" hint-placeholder-val="{{ false }}">
+      <div style="position: fixed; left: 8px; bottom: 0; width: clamp(190px, calc((100vw - 1120px) / 2 + 50px), 330px); aspect-ratio: 230 / 330; pointer-events: none; z-index: 0; transform: scaleX(-1);"><div style="position: absolute; left: -30%; right: -40%; bottom: -14px; height: 13%; border-radius: 50% 50% 0 0 / 100% 100% 0 0; background: #f3dfc9;"></div><div style="position: absolute; inset: 0;">{{ ocotilloLeft }}</div></div>
+    </sc-if>
+    <div style="position: fixed; left: 0; right: 0; bottom: 4px; height: 70px; pointer-events: none; z-index: 0; overflow: hidden;">{{ tumbleweed }}</div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showOcotillo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;twoPlants&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;barrel&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;startGrown&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.08,&quot;min&quot;:0,&quot;max&quot;:0.6,&quot;step&quot;:0.02,&quot;tsType&quot;:&quot;number&quot;},&quot;tumbleweed&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+const OC = [[-46,620,1.9,15,4.5,0.30],[-31,700,2.1,16,5,0.15],[-15,770,2.4,17,5.5,0.05],[2,815,2.6,18,5.5,0],[15,745,2.3,16,5,0.10],[29,690,2,15,4.5,0.20],[41,610,1.8,14,4,0.25],[54,520,1.7,13,4,0.35]];
+const ease = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
+const back = t => { const c = 1.7; return 1 + (c+1)*Math.pow(t-1,3) + c*Math.pow(t-1,2); };
+const cl = v => Math.max(0, Math.min(1, v));
+const f1 = v => v.toFixed(1);
+
+function ocotilloEl(p, time, ph = 0) {
+  const h = React.createElement, kids = [];
+  OC.forEach(([a1, len, curl, w0, w1, dl], ci) => {
+    const grow = ease(cl((p - dl * 0.5) / 0.55));
+    if (grow <= 0.01) return;
+    const sway = 1.8 * (Math.sin(time * 0.85 + ci * 0.9 + ph) + 0.4 * Math.sin(time * 2.1 + ci * 1.5 + ph * 1.3));
+    const N = 54, seg = len / N, a0 = a1 * 0.12, pts = []; let x = 0, y = 0;
+    for (let i = 0; i <= N; i++) { const t = i / N, ang = (a0 + (a1 - a0) * Math.pow(t, curl) + sway * t * t) * Math.PI / 180; pts.push({ x, y, t, ang }); x += Math.sin(ang) * seg; y -= Math.cos(ang) * seg; }
+    const n = Math.max(2, Math.round(N * grow) + 1), L = [], R = [];
+    for (let i = 0; i < n; i++) { const q = pts[i], w = (w0 + (w1 - w0) * q.t) / 2; L.push(f1(q.x + Math.cos(q.ang) * w) + ' ' + f1(q.y + Math.sin(q.ang) * w)); R.push(f1(q.x - Math.cos(q.ang) * w) + ' ' + f1(q.y - Math.sin(q.ang) * w)); }
+    kids.push(h('path', { key: 's' + ci, d: 'M' + L.concat(R.reverse()).join('L') + 'Z', fill: '#3d472b' }));
+    for (let i = 4; i < n - 1; i += 2) {
+      const q = pts[i]; if (q.t < 0.06) continue;
+      const pop = cl((grow - q.t) / 0.12); if (pop <= 0) continue;
+      const side = i % 4 === 0 ? 1 : -1, off = (5 + 4 * (1 - q.t)) * side;
+      kids.push(h('ellipse', { key: ci + 'l' + i, rx: 11.5, ry: 5.4, fill: i % 4 === 0 ? '#3d472b' : '#56633f',
+        transform: `translate(${f1(q.x + Math.cos(q.ang) * off)} ${f1(q.y + Math.sin(q.ang) * off)}) rotate(${f1(q.ang * 180 / Math.PI + side * 66)}) scale(${(back(pop) * (0.78 + 0.34 * (1 - q.t))).toFixed(3)})` }));
+    }
+    const bl = cl((p - 0.82 - ci * 0.015) / 0.12);
+    if (bl > 0 && grow > 0.98) {
+      const tp = pts[N];
+      kids.push(h('g', { key: 'f' + ci, transform: `translate(${f1(tp.x)} ${f1(tp.y)}) rotate(${f1(tp.ang * 180 / Math.PI)}) scale(${back(bl).toFixed(3)})` },
+        [-26, -13, 0, 13, 26].map((r, j) => h('rect', { key: j, x: -4.5, y: -46, width: 9, height: 48, rx: 4.5, fill: j % 2 ? '#b2622d' : '#8c491a', transform: `rotate(${r})` }))));
+    }
+  });
+  return h('svg', { viewBox: '-430 -940 660 950', width: '100%', height: '100%', style: { display: 'block', overflow: 'visible' } }, h('g', { transform: 'rotate(-12)' }, kids));
+}
+
+function barrelEl(p, time) {
+  const h = React.createElement, kids = [];
+  const g = 0.3 + 0.7 * ease(cl(p / 0.6)), br = 1 + 0.012 * Math.sin(time * 1.3);
+  kids.push(h('path', { key: 'b', d: 'M-50 0 C-57 -42 -40 -88 0 -90 C40 -88 57 -42 50 0 Z', fill: '#56633f' }));
+  for (let k = -4; k <= 4; k++) {
+    const x0 = k * 11.5, xm = k * 13.2, x1 = k * 4;
+    kids.push(h('path', { key: 'r' + k, d: `M${x0} 0 Q${xm} -50 ${x1} -88`, fill: 'none', stroke: k % 2 ? '#3d472b' : '#728157', strokeWidth: k % 2 ? 2.6 : 2, strokeLinecap: 'round' }));
+    for (let t = 0.18; t < 0.95; t += 0.19) {
+      const u = 1 - t, sx = u * u * x0 + 2 * u * t * xm + t * t * x1, sy = 2 * u * t * -50 + t * t * -88;
+      kids.push(h('g', { key: 's' + k + '_' + t.toFixed(2), transform: `translate(${f1(sx)} ${f1(sy)})`, stroke: '#ebddc5', strokeWidth: 1.1, strokeLinecap: 'round' },
+        [-50, 0, 50].map(a => h('line', { key: a, x1: 0, y1: 0, x2: f1(Math.sin(a * Math.PI / 180) * 4.5), y2: f1(-Math.cos(a * Math.PI / 180) * 4.5) }))));
+    }
+  }
+  [[-17, -84, -18], [-6, -91, -6], [6, -91, 6], [17, -84, 18]].forEach(([fx, fy, rot], i) => {
+    const bl = cl((p - 0.72 - i * 0.04) / 0.14); if (bl <= 0) return;
+    const s = back(bl);
+    kids.push(h('g', { key: 'f' + i, transform: `translate(${fx} ${fy}) rotate(${rot}) scale(${s.toFixed(3)})` },
+      [0, 1, 2, 3, 4, 5].map(j => h('ellipse', { key: j, cx: 0, cy: -6, rx: 3.2, ry: 6.5, fill: j % 2 ? '#e991b1' : '#f2a7c3', transform: `rotate(${j * 60})` })).concat(h('circle', { key: 'c', r: 2.6, fill: '#fff4d6' }))));
+  });
+  return h('svg', { viewBox: '-60 -110 120 112', width: '100%', height: '100%', style: { display: 'block', overflow: 'visible' } },
+    h('g', { transform: `scale(${g.toFixed(3)} ${(g * br).toFixed(3)})` }, kids));
+}
+
+const TW = (() => { let s = 7; const r = () => (s = (s * 9301 + 49297) % 233280) / 233280; const d = [];
+  for (let i = 0; i < 26; i++) { const a0 = r() * 6.283, r0 = 6 + r() * 15, a1 = a0 + 1.2 + r() * 2.4, r1 = 6 + r() * 15, ca = (a0 + a1) / 2 + (r() - 0.5), cr = 4 + r() * 20;
+    d.push('M' + (r0 * Math.cos(a0)).toFixed(1) + ' ' + (r0 * Math.sin(a0)).toFixed(1) + 'Q' + (cr * Math.cos(ca)).toFixed(1) + ' ' + (cr * Math.sin(ca)).toFixed(1) + ' ' + (r1 * Math.cos(a1)).toFixed(1) + ' ' + (r1 * Math.sin(a1)).toFixed(1)); }
+  return d; })();
+function tumbleweedEl(t) {
+  if (t == null || t < 0 || t > 1) return null;
+  const h = React.createElement, x = -8 + 116 * t, rot = t * 1500, bounce = Math.abs(Math.sin(t * Math.PI * 7)) * 18 * (1 - t * 0.5);
+  return h('div', { style: { position: 'absolute', left: x + '%', bottom: 0, width: 50, height: 50, transform: 'translateY(' + (-bounce).toFixed(1) + 'px)' } },
+    h('div', { style: { position: 'absolute', left: 8, right: 8, bottom: -2 - bounce, height: 6, borderRadius: '50%', background: 'rgba(140, 100, 60, ' + (0.18 - bounce * 0.006).toFixed(3) + ')' } }),
+    h('svg', { viewBox: '-25 -25 50 50', width: 50, height: 50, style: { transform: 'rotate(' + rot.toFixed(1) + 'deg)', display: 'block' } },
+      h('circle', { r: 20, fill: 'none', stroke: '#a77f52', strokeWidth: 1.1, opacity: 0.55 }),
+      TW.map((d, i) => h('path', { key: i, d, fill: 'none', stroke: i % 3 ? '#9a7246' : '#c29a68', strokeWidth: i % 4 ? 1.1 : 1.6, strokeLinecap: 'round' }))));
+}
+
+class Component extends DCLogic {
+  state = { p: 0, time: 0 };
+  componentDidMount() {
+    this.onResize = () => this.setState({ vw: window.innerWidth });
+    window.addEventListener('resize', this.onResize);
+    this.onResize();
+    const tick = (ms) => {
+      const el = document.scrollingElement || document.documentElement;
+      const max = Math.max(1, el.scrollHeight - window.innerHeight);
+      const target = cl(el.scrollTop / max);
+      const p = this.state.p + (target - this.state.p) * 0.12;
+      let tw = this.state.tw;
+      if (target > 0.97 && tw == null && !this.twDone) { this.twStart = ms; tw = 0; this.twDone = true; }
+      else if (tw != null) { tw = (ms - this.twStart) / 9000; if (tw > 1) tw = null; }
+      if (target < 0.75) this.twDone = false;
+      this.setState({ p: Math.abs(target - p) < 0.0005 ? target : p, time: ms / 1000, tw });
+    };
+    this.iv = setInterval(() => tick(performance.now()), 33);
+  }
+  componentWillUnmount() { clearInterval(this.iv); window.removeEventListener('resize', this.onResize); }
+  renderVals() {
+    const show = this.props.showOcotillo ?? true;
+    const minGrow = this.props.startGrown ?? 0.08;
+    const p = minGrow + (1 - minGrow) * this.state.p;
+    const two = show && (this.props.twoPlants ?? true);
+    const pL = Math.max(0, p - 0.06);
+    return { phoneZoom: Math.min(1, Math.max(0.6, ((this.state.vw || 1200) - 48) / 430)), ethics: [{ name: 'Human Agency', cite: 'Friedman & Kahn, 1992' }, { name: 'Authenticity', cite: 'Turkle, 2007' }, { name: 'Privacy', cite: 'Friedman & Kahn, 2003' }, { name: 'Mental Workload', cite: 'Proctor & Van Zandt, 2017' }], showOcotillo: show, twoPlants: two, ocotillo: show ? ocotilloEl(p, this.state.time) : null, ocotilloLeft: two ? ocotilloEl(pL, this.state.time, 2.4) : null, showBarrel: show && (this.props.barrel ?? true), barrel: show && (this.props.barrel ?? true) ? barrelEl(p, this.state.time) : null, tumbleweed: show && (this.props.tumbleweed ?? true) ? tumbleweedEl(this.state.tw) : null };
+  }
+}
+</script>
+</body>
+</html>

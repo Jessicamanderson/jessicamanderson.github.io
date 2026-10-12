@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@400;500&family=Karla:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="components/data-dignity/fig-assets.css">
+<style>
+  body { margin: 0; background: #ffffff; }
+  a { color: #383f5c; text-decoration: none; }
+  a:hover { color: #1f2438; }
+</style>
+</helmet>
+<div data-screen-label="Data Dignity case study" style="background: #ffffff; min-height: 100vh; font-family: 'Roboto', system-ui, sans-serif; color: #383f5c; overflow-x: clip;">
+  <sc-if value="{{ navWide }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Case study sections" style="position: fixed; left: 28px; top: 50%; transform: translateY(-50%); z-index: 30; display: flex; flex-direction: column; gap: 4px; opacity: {{ navOp }}; transition: opacity 0.3s ease;">
+      <sc-for list="{{ navItems }}" as="it" hint-placeholder-count="9">
+        <a href="#{{ it.id }}" onClick="{{ it.go }}" style="display: flex; align-items: center; gap: 12px; padding: 7px 0; font-family: 'Karla', sans-serif; font-size: 15px; color: {{ it.color }}; font-weight: {{ it.weight }};" style-hover="color: #383f5c;"><span style="width: {{ it.bar }}; height: 2px; background: {{ it.color }}; border-radius: 2px; transition: width 0.25s ease;"></span>{{ it.label }}</a>
+      </sc-for>
+    </nav>
+  </sc-if>
+  <sc-if value="{{ navNarrow }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Case study sections" style="position: sticky; top: 0; z-index: 30; background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(8px); box-shadow: 0 2px 12px rgba(196, 160, 112, 0.18); display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 10px 16px; opacity: {{ navOp }}; pointer-events: {{ navPe }}; transition: opacity 0.3s ease;">
+      <sc-for list="{{ navItems }}" as="it" hint-placeholder-count="9">
+        <a href="#{{ it.id }}" onClick="{{ it.go }}" style="flex-shrink: 0; font-family: 'Karla', sans-serif; font-size: 14px; color: {{ it.pillText }}; background: {{ it.pillBg }}; border-radius: 999px; padding: 7px 14px; white-space: nowrap;">{{ it.label }}</a>
+      </sc-for>
+    </nav>
+  </sc-if>
+
+  <div style="max-width: 1120px; margin: 0 auto; padding: 56px 40px 0; display: flex; flex-direction: column;">
+    <a href="Home.dc.html" style="font-family: 'Playfair Display', serif; font-size: 18px; color: #383f5c; display: flex; align-items: center; gap: 8px; align-self: flex-start;" style-hover="color: #1f2438;"><span>⟵</span> Back</a>
+
+    <section data-screen-label="Hero" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; padding: 48px 0 72px;">
+      <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 24px;">
+        <div style="display: flex; align-items: center; gap: 14px; margin-left: calc(-1 * (max(0px, (100vw - 1120px) / 2) + 40px));">
+          <span style="flex: 0 0 calc(max(0px, (100vw - 1120px) / 2) + 26px); height: 3px; background: #383f5c;"></span>
+          <h1 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(34px, 4.2vw, 58px); line-height: 1.08; margin: 0; color: #383f5c;">Data Dignity</h1>
+        </div>
+        <p style="font-size: 18px; line-height: 1.55; color: #6b6a7c; margin: 0; max-width: 460px; text-wrap: pretty;">An accessibility-first mobile app that empowers people to see, understand, and control their personal data in a fictional 2040 privacy-forward world.</p>
+        <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">UX Case Study · Fall 2025</span>
+      </div>
+      <div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 18px;">
+        <a href="{{ proto }}" target="_blank" rel="noopener" aria-label="Open the Data Dignity prototype in Figma" style="display: block; padding: 11px; background: #1b1b1d; border-radius: 52px; box-shadow: 0 24px 44px rgba(196, 160, 112, 0.38), 0 4px 10px rgba(46, 43, 37, 0.12), inset 0 0 0 2px #3a3a3d; transition: transform 0.35s ease;" style-hover="transform: scale(1.03);">
+          <div style="position: relative; width: 300px; height: 650px; overflow: hidden; border-radius: 42px; background: #ffffff;">
+            <div style="position: absolute; left: 0; top: 0; width: 393px; height: 852px; transform: scale(0.7634); transform-origin: 0 0;">
+              <dc-import name="Data Dignity Screen" screen="dashboard" hint-size="393px,852px"></dc-import>
+            </div>
+          </div>
+        </a>
+        <a href="{{ proto }}" target="_blank" rel="noopener" style="font-family: 'Karla', sans-serif; font-weight: 600; font-size: 15px; color: #ffffff; background: #383f5c; border-radius: 999px; padding: 11px 22px;" style-hover="background: #2b3148; color: #ffffff;">View prototype ↗</a>
+      </div>
+    </section>
+
+    <section data-screen-label="Intro" style="display: flex; flex-wrap: wrap; gap: 32px 72px; align-items: flex-start; padding: 0 0 96px;">
+      <p style="flex: 1.2 1 380px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.3; margin: 0; color: #383f5c; text-wrap: pretty;">“Citizens now have their data, but they don't have a way to make sense of it visually, and that gap is exactly where Data Dignity lives.”</p>
+      <p style="flex: 1 1 320px; font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; padding-top: 6px; text-wrap: pretty;">Data Dignity is a mobile startup filling that gap. The challenge was to design an accessible, clarity-first app that helps users visualize their data footprint across dozens of platforms and take meaningful action on their privacy settings, for all users, including those with visual accessibility needs.</p>
+    </section>
+
+    <section id="overview" data-screen-label="Overview" style="scroll-margin-top: 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; padding: 40px 0 72px; border-top: 1.5px solid #8c8a99;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px; margin: 0;">My Role</h3>
+        <p style="font-size: 15px; line-height: 1.7; color: #4a4f68; margin: 0;">UX/UI Designer</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px; margin: 0;">Course</h3>
+        <p style="font-size: 15px; line-height: 1.7; color: #4a4f68; margin: 0;">Visual Design for UI<br>FA25-IN-HER-V500</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px; margin: 0;">Timeline</h3>
+        <p style="font-size: 15px; line-height: 1.7; color: #4a4f68; margin: 0;">Full Semester, 2025</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px; margin: 0;">Tools</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <sc-for list="{{ tools }}" as="t" hint-placeholder-count="3">
+            <span style="font-family: 'Karla', sans-serif; font-size: 14px; color: #4a4f68; background: #ffffff; box-shadow: 0 2px 8px rgba(196, 160, 112, 0.25); border-radius: 999px; padding: 6px 12px;">{{ t }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Highlights" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; padding: 0 0 120px;">
+      <sc-for list="{{ highlights }}" as="h" hint-placeholder-count="4">
+        <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 10px;">
+          <span style="font-family: 'Playfair Display', serif; font-size: 40px; line-height: 1; color: #383f5c;">{{ h.stat }}</span>
+          <span style="font-size: 15px; line-height: 1.5; color: #4a4f68;">{{ h.label }}</span>
+        </div>
+      </sc-for>
+    </section>
+
+    <section id="problem" data-screen-label="Problem" style="scroll-margin-top: 80px; display: flex; flex-direction: column; gap: 20px; padding: 0 0 120px; max-width: 780px;">
+      <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">The Challenge</span>
+      <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 36px; line-height: 1.15; margin: 0; text-wrap: pretty;">A world with data rights, but no tools to use them</h2>
+      <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">In February 2040, President Veronica Penn signs the Digital Dignity Act into law, making it illegal for any entity to own personal data without explicit user consent. Citizens suddenly have their data back, but there is no simple way to see it, make sense of it, or control it.</p>
+    </section>
+
+    <section id="process" data-screen-label="Process" style="scroll-margin-top: 80px; display: flex; flex-direction: column; gap: 28px; padding: 0 0 120px;">
+      <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px;">
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 32px; margin: 0;">Design Process</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">The project followed a full UX design process, not jumping straight to screens, but building understanding before pixels. Each phase fed directly into the next.</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <sc-for list="{{ process }}" as="p" hint-placeholder-count="4">
+          <div style="display: flex; align-items: center; gap: 10px; background: #ffffff; box-shadow: 0 2px 8px rgba(196, 160, 112, 0.25); border-radius: 999px; padding: 10px 18px 10px 10px;">
+            <span style="width: 28px; height: 28px; border-radius: 999px; background: #383f5c; color: #fdebd4; font-family: 'Karla', sans-serif; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center;">{{ p.n }}</span>
+            <span style="font-family: 'Karla', sans-serif; font-size: 16px; color: #383f5c;">{{ p.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </div>
+
+  <section id="research" data-screen-label="Research" style="scroll-margin-top: 80px; padding: 0 40px 120px;">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 110px;">
+      <div style="display: flex; flex-direction: column; gap: 32px;">
+        <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px;">
+          <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">01 · Research Foundation</span>
+          <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 40px; line-height: 1.15; margin: 0;">Grounding design decisions in credible standards</h2>
+          <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">Two peer-reviewed and industry-leading sources shaped every accessibility decision in the design system.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          <sc-for list="{{ sources }}" as="s" hint-placeholder-count="2">
+            <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 12px;">
+              <span style="font-family: 'Karla', sans-serif; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #a6377f;">{{ s.org }}</span>
+              <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 22px; line-height: 1.3; margin: 0;">{{ s.title }}</h3>
+              <p style="font-size: 15px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">{{ s.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 32px;">
+        <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px;">
+          <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Primary Persona</span>
+          <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 36px; line-height: 1.15; margin: 0;">Alex Martinez: the north star of every decision</h2>
+          <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">Every design choice was filtered through one question: <strong style="color: #383f5c; font-weight: 500;">Does this work for Alex?</strong> Alex served as the fixed reference point across the entire semester, ensuring accessibility never became an afterthought.</p>
+        </div>
+        <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 24px; padding: 36px; display: flex; flex-wrap: wrap; gap: 36px 56px;">
+          <div style="flex: 0 1 240px; display: flex; flex-direction: column; gap: 14px;">
+            <span style="width: 88px; height: 88px; border-radius: 999px; background: #a6377f; color: #ffffff; font-family: 'Playfair Display', serif; font-size: 32px; display: flex; align-items: center; justify-content: center;">AM</span>
+            <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 24px; margin: 0;">Alex Martinez</h3>
+            <p style="font-size: 15px; line-height: 1.6; color: #4a4f68; margin: 0;">28 · Freelance Graphic Designer</p>
+            <span style="align-self: flex-start; font-family: 'Karla', sans-serif; font-size: 14px; color: #383f5c; background: #ffffff; box-shadow: 0 2px 8px rgba(196, 160, 112, 0.25); border-radius: 999px; padding: 6px 12px;">Deuteranopia (red-green color blindness)</span>
+          </div>
+          <sc-for list="{{ persona }}" as="pc" hint-placeholder-count="2">
+            <div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 12px;">
+              <h4 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px; margin: 0;">{{ pc.title }}</h4>
+              <sc-for list="{{ pc.items }}" as="it" hint-placeholder-count="4">
+                <div style="display: flex; gap: 12px; align-items: flex-start;">
+                  <span style="width: 7px; height: 7px; border-radius: 999px; background: #a6377f; margin-top: 9px; flex-shrink: 0;"></span>
+                  <span style="font-size: 15px; line-height: 1.6; color: #4a4f68;">{{ it }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="max-width: 1120px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 120px;">
+    <section id="system" data-screen-label="Design system" style="scroll-margin-top: 80px; display: flex; flex-direction: column; gap: 48px;">
+      <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px;">
+        <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">02 · Design System</span>
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 40px; line-height: 1.15; margin: 0;">A color palette built for deuteranopia, not despite it</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">The palette was chosen for maximum hue differentiation, deliberately avoiding red/green combinations. Every color pairing was tested against WCAG 2.1 AA contrast ratios before use in any screen element.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 24px;">
+        <sc-for list="{{ swatches }}" as="sw" hint-placeholder-count="6">
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="aspect-ratio: 1; border-radius: 999px; background: {{ sw.hex }}; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18), inset 0 0 0 1px rgba(0, 0, 0, 0.06);"></div>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Karla', sans-serif; font-size: 15px; font-weight: 600; color: #383f5c;">{{ sw.name }}</span>
+              <span style="font-family: 'Karla', sans-serif; font-size: 14px; color: #6b6a7c;">{{ sw.hex }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 22px;">
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <span style="font-family: 'Karla', sans-serif; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Primary Typeface: Headers</span>
+            <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 34px; color: #201e1d;">Montserrat Bold</span>
+            <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: #4a4f68; letter-spacing: 0.04em;">ABCDEFGHIJKLMNOPQRSTUVWXYZ · 0123456789</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <span style="font-family: 'Karla', sans-serif; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Secondary Typeface: Body &amp; UI</span>
+            <span style="font-family: 'Open Sans', sans-serif; font-size: 30px; color: #201e1d;">Open Sans Regular</span>
+            <span style="font-family: 'Open Sans', sans-serif; font-size: 14px; color: #4a4f68;">abcdefghijklmnopqrstuvwxyz · labels, descriptions, toggles</span>
+          </div>
+        </div>
+        <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+          <span style="font-family: 'Karla', sans-serif; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Spacing system</span>
+          <sc-for list="{{ spacing }}" as="sp" hint-placeholder-count="4">
+            <div style="display: flex; gap: 12px; align-items: flex-start;">
+              <span style="width: 7px; height: 7px; border-radius: 999px; background: #a6377f; margin-top: 9px; flex-shrink: 0;"></span>
+              <span style="font-size: 15px; line-height: 1.6; color: #4a4f68;">{{ sp }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+          <span style="font-family: 'Karla', sans-serif; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Contrast compliance</span>
+          <sc-for list="{{ contrast }}" as="c" hint-placeholder-count="4">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="flex: 0 0 auto; min-width: 46px; text-align: center; font-family: 'Open Sans', sans-serif; font-weight: 700; font-size: 14px; color: {{ c.fg }}; background: {{ c.bg }}; border-radius: 8px; padding: 6px 8px;">Aa</span>
+              <span style="flex: 1 1 auto; font-size: 15px; line-height: 1.4; color: #4a4f68;">{{ c.label }}</span>
+              <span style="font-family: 'Karla', sans-serif; font-weight: 600; font-size: 14px; color: #383f5c; white-space: nowrap;">{{ c.ratio }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Accessibility strategy" style="display: flex; flex-direction: column; gap: 32px;">
+      <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px;">
+        <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Accessibility Strategy</span>
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 36px; margin: 0;">Multiple visual encodings, always</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">Good accessibility is not a single decision; it is a system. Rather than patching individual elements for color blindness, the design uses layered redundancy throughout: every piece of information is conveyed through at least two independent visual channels.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px;">
+        <sc-for list="{{ encodings }}" as="e" hint-placeholder-count="4">
+          <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 10px;">
+            <span style="font-family: 'Playfair Display', serif; font-size: 28px; color: #a6377f;">{{ e.n }}</span>
+            <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px; margin: 0;">{{ e.title }}</h3>
+            <p style="font-size: 15px; line-height: 1.6; color: #4a4f68; margin: 0; text-wrap: pretty;">{{ e.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section id="screens" data-screen-label="Screens" style="scroll-margin-top: 80px; display: flex; flex-direction: column; gap: 96px;">
+      <div style="display: flex; flex-direction: column; gap: 40px;">
+        <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px;">
+          <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">03 · High-Fidelity Screens</span>
+          <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 40px; line-height: 1.15; margin: 0;">Three core screens, one design language</h2>
+          <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">The final designs deliver three interconnected screens: a Dashboard for at-a-glance data awareness, a Data Management hub for controlling permissions by source, and a Settings screen for privacy preferences and accessibility options.</p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 48px 40px;">
+          <sc-for list="{{ finals }}" as="s" hint-placeholder-count="3">
+            <div style="flex: 0 0 264px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;">
+              <div style="padding: 10px; background: #1b1b1d; border-radius: 46px; box-shadow: 0 18px 36px rgba(196, 160, 112, 0.32), inset 0 0 0 2px #3a3a3d; transition: transform 0.35s ease;" style-hover="transform: scale(1.04);">
+                <div style="position: relative; width: 244px; height: 529px; overflow: hidden; border-radius: 36px; background: #ffffff;">
+                  <div style="position: absolute; left: 0; top: 0; width: 393px; height: 852px; transform: scale(0.6209); transform-origin: 0 0;">
+                    <dc-import name="Data Dignity Screen" screen="{{ s.screen }}" hint-size="393px,852px"></dc-import>
+                  </div>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 4px; padding: 0 6px;">
+                <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 21px; margin: 0;">{{ s.title }}</h3>
+                <span style="font-family: 'Karla', sans-serif; font-size: 15px; color: #6b6a7c;">{{ s.sub }}</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 40px;">
+        <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px;">
+          <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 36px; margin: 0;">Onboarding</h2>
+          <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">Onboarding flow designed and added: 3-screen sequence (Welcome → Privacy Promise → Ready to Begin) with progress dots.</p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 48px 40px;">
+          <sc-for list="{{ onboarding }}" as="s" hint-placeholder-count="3">
+            <div style="flex: 0 0 264px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;">
+              <div style="padding: 10px; background: #1b1b1d; border-radius: 46px; box-shadow: 0 18px 36px rgba(196, 160, 112, 0.32), inset 0 0 0 2px #3a3a3d; transition: transform 0.35s ease;" style-hover="transform: scale(1.04);">
+                <div style="position: relative; width: 244px; height: 529px; overflow: hidden; border-radius: 36px; background: #ffffff;">
+                  <div style="position: absolute; left: 0; top: 0; width: 393px; height: 852px; transform: scale(0.6209); transform-origin: 0 0;">
+                    <x-import component-from-global-scope="{{ s.comp }}" from="./components/data-dignity/Components.bundle.js" hint-size="393px,852px"></x-import>
+                  </div>
+                </div>
+              </div>
+              <div style="display: flex; align-items: baseline; gap: 10px; padding: 0 6px;">
+                <span style="font-family: 'Playfair Display', serif; font-size: 22px; color: #a6377f;">{{ s.n }}</span>
+                <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px; margin: 0;">{{ s.title }}</h3>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section id="iteration" data-screen-label="Iteration history" style="scroll-margin-top: 80px; display: flex; flex-direction: column; gap: 56px;">
+      <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px;">
+        <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">04 · Iteration History</span>
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 40px; line-height: 1.15; margin: 0;">Four rounds of feedback, one progressively stronger design</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">The project moved through multiple distinct feedback cycles, from the first rough screens through peer critique and instructor zoom review to the final polished submission. Each iteration had a specific focus and produced measurable changes.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 24px; margin: 0;">What reviewers said</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px;">
+            <span style="font-family: 'Playfair Display', serif; font-size: 48px; line-height: 0.6; color: #f2a7c3;">“</span>
+            <p style="font-family: 'Playfair Display', serif; font-size: 19px; line-height: 1.5; color: #383f5c; margin: 0; text-wrap: pretty;">Your clear card layouts with colour + text makes the information much easier to understand without relying only on colour.</p>
+            <span style="font-family: 'Karla', sans-serif; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Peer critique</span>
+          </div>
+          <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px;">
+            <span style="font-family: 'Playfair Display', serif; font-size: 48px; line-height: 0.6; color: #f2a7c3;">“</span>
+            <p style="font-family: 'Playfair Display', serif; font-size: 19px; line-height: 1.5; color: #383f5c; margin: 0; text-wrap: pretty;">What is really working well with your design in version 3 is the layout of different sections by grouping them closer to each other, while having more gap from other section.</p>
+            <span style="font-family: 'Karla', sans-serif; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Peer critique</span>
+          </div>
+        </div>
+        <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 28px; display: flex; flex-wrap: wrap; gap: 28px 40px; align-items: center;">
+          <img src="assets/data-dignity/feedback/fb4.png" alt="Contrast checker showing #999999 on white at 2.84:1, failing WCAG" style="flex: 1 1 280px; min-width: 0; max-width: 420px; width: 100%; border-radius: 12px; display: block;">
+          <div style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-family: 'Karla', sans-serif; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Feedback I acted on</span>
+            <h4 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 22px; margin: 0;">Contrast I had missed</h4>
+            <p style="font-size: 16px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">A reviewer flagged that the grey "Always connected" text on the Data Management screen measured around 2.8:1, failing WCAG for normal text, along with the low-contrast "D" icon and grey toggles on white. In V3 I darkened those elements and added stroke outlines to the toggles.</p>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 72px;">
+        <sc-for list="{{ versions }}" as="v" hint-placeholder-count="4">
+          <div style="display: flex; flex-wrap: wrap; gap: 32px 56px; align-items: center;">
+            <div style="flex: 0 0 auto; padding: 8px; background: #1b1b1d; border-radius: 38px; box-shadow: 0 14px 28px rgba(196, 160, 112, 0.3), inset 0 0 0 2px #3a3a3d;">
+              <div style="position: relative; width: 198px; height: 429px; overflow: hidden; border-radius: 30px; background: #ffffff;">
+                <div style="position: absolute; left: 0; top: 0; width: 393px; height: 852px; transform: scale(0.5038); transform-origin: 0 0;">
+                  <dc-import name="Data Dignity Screen" screen="dashboard" version="{{ v.ver }}" hint-size="393px,852px"></dc-import>
+                </div>
+              </div>
+            </div>
+            <div style="flex: 1 1 340px; display: flex; flex-direction: column; gap: 14px;">
+              <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                <span style="font-family: 'Playfair Display', serif; font-size: 34px; line-height: 1; color: #a6377f;">{{ v.v }}</span>
+                <span style="font-family: 'Karla', sans-serif; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #383f5c; background: #ffffff; box-shadow: 0 2px 8px rgba(196, 160, 112, 0.25); border-radius: 999px; padding: 5px 12px;">{{ v.tag }}</span>
+              </div>
+              <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 22px; margin: 0;">{{ v.title }}</h3>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <sc-for list="{{ v.items }}" as="it" hint-placeholder-count="5">
+                  <div style="display: flex; gap: 12px; align-items: flex-start;">
+                    <span style="width: 6px; height: 6px; border-radius: 999px; background: #8c8a99; margin-top: 9px; flex-shrink: 0;"></span>
+                    <span style="font-size: 15px; line-height: 1.6; color: #4a4f68; text-wrap: pretty;">{{ it }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section id="icons" data-screen-label="Icons" style="scroll-margin-top: 80px; display: flex; flex-direction: column; gap: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px;">
+        <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Icon Set &amp; Animation</span>
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 36px; line-height: 1.2; margin: 0;">Custom icons designed in Figma, animated in After Effects</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">As part of the project's design system, a set of five custom icons was created from scratch in Figma using the Material Design keyline grid. Two of those icons were then animated in Adobe After Effects for the microanimation deliverable.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px;">
+        <sc-for list="{{ icons }}" as="ic" hint-placeholder-count="5">
+          <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+            <img src="{{ ic.src }}" alt="" style="width: 64px; height: 64px; display: block;">
+            <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 19px; margin: 0;">{{ ic.title }}</h3>
+            <p style="font-size: 14px; line-height: 1.55; color: #4a4f68; margin: 0; text-wrap: pretty;">{{ ic.body }}</p>
+            <sc-if value="{{ ic.animated }}" hint-placeholder-val="{{ false }}">
+              <span style="align-self: flex-start; font-family: 'Karla', sans-serif; font-size: 13px; font-weight: 600; color: #ffffff; background: #383f5c; border-radius: 999px; padding: 4px 10px;">Animated</span>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 28px; margin: 0;">Animation process in After Effects</h3>
+        <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; max-width: 760px; text-wrap: pretty;">The App Icon and Import Icon were animated as looped sequences (1–1.5 seconds at 30fps, 400×400px compositions). This was the first time working in After Effects; the workflow went from SVG export out of Figma, through keyframe animation in After Effects, to final MP4 render.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 32px;">
+          <sc-for list="{{ aeSteps }}" as="st" hint-placeholder-count="4">
+            <div style="border-top: 1.5px solid #8c8a99; padding-top: 18px; display: flex; flex-direction: column; gap: 10px;">
+              <span style="font-family: 'Karla', sans-serif; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">{{ st.n }}</span>
+              <h4 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 19px; margin: 0;">{{ st.title }}</h4>
+              <p style="font-size: 15px; line-height: 1.6; color: #4a4f68; margin: 0; text-wrap: pretty;">{{ st.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding-top: 12px;">
+          <sc-for list="{{ animations }}" as="an" hint-placeholder-count="2">
+            <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 12px;">
+              <h4 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px; margin: 0;">{{ an.icon }}</h4>
+              <sc-for list="{{ an.rows }}" as="r" hint-placeholder-count="3">
+                <div style="display: flex; flex-direction: column; gap: 2px;">
+                  <span style="font-family: 'Karla', sans-serif; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #6b6a7c;">{{ r.k }}</span>
+                  <span style="font-size: 15px; line-height: 1.5; color: #4a4f68;">{{ r.v }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section id="outcomes" data-screen-label="Outcomes" style="scroll-margin-top: 80px; display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px;">
+        <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Outcomes</span>
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 36px; margin: 0;">What this project delivered</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">The final submission addressed every rubric requirement while developing genuine, transferable expertise in accessibility-first design thinking.</p>
+        <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">It delivered WCAG 2.1 AA compliance, a complete design system on an 8-point grid, multiple visual encodings, an onboarding flow and two After Effects icon animations, all backed by credible research and instructor feedback.</p>
+      </div>
+    </section>
+
+    <section id="reflection" data-screen-label="Reflection" style="scroll-margin-top: 80px; display: flex; flex-direction: column; gap: 20px; max-width: 820px;">
+      <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Reflection</span>
+      <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 36px; line-height: 1.2; margin: 0; text-wrap: pretty;">Accessibility as a design philosophy, not a checklist</h2>
+      <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">The most significant shift this project produced was moving accessibility from a compliance exercise to a design instinct. Every moodboard choice, every spacing decision, and every chart type was filtered through the question: does this work for Alex?</p>
+      <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">That discipline created a parallel with ESL education: the same way an effective lesson makes content digestible for all learners regardless of language proficiency, a well-designed interface makes information legible regardless of visual ability. The principle is identical: reduce cognitive load, provide multiple pathways to understanding, and never assume a single encoding is enough.</p>
+      <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">Working with the 8-point grid, learning to layer visual encodings simultaneously, and iterating based on specific feedback all reinforced that good design is not inspiration; it is a repeatable, evidence-based process.</p>
+    </section>
+
+    <section data-screen-label="More work" style="display: flex; flex-direction: column; gap: 28px; padding-bottom: 120px;">
+      <p style="font-family: 'Playfair Display', serif; font-size: 28px; margin: 0;">Thank you for reading my case study!</p>
+      <a href="Pearl%20Case%20Study.dc.html" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 24px; padding: 28px; color: inherit;" style-hover="box-shadow: 0 10px 28px rgba(196, 160, 112, 0.32);">
+        <div style="position: relative; flex: 1 1 260px; min-width: 0; max-width: 360px;">
+          <img src="assets/pearl/laptop-frame.png" alt="" style="position: relative; z-index: 2; pointer-events: none; width: 100%; display: block;">
+          <div style="position: absolute; left: 9%; top: 2.145%; width: 81.93%; height: 87.01%; overflow: hidden; background: #ffffff;">
+            <img src="assets/moleskine/pearl-screen.png" alt="Pearl portfolio platform" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
+          </div>
+        </div>
+        <div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Next case study</span>
+          <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 28px; margin: 0;">SAAS Platform for Job Seekers →</h3>
+          <p style="font-size: 16px; line-height: 1.5; color: #4a4f68; margin: 0;">Portfolio Building Website</p>
+        </div>
+      </a>
+    </section>
+
+    <footer data-screen-label="Footer" style="display: flex; flex-direction: column; align-items: center;">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; padding-bottom: 24px;">
+        <a href="mailto:Jessicamabrego@gmail.com" style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 26px; color: #383f5c;">Jessicamabrego@gmail.com</a>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <a href="https://www.linkedin.com/in/jessanders/" target="_blank" rel="noopener" aria-label="LinkedIn" style="width: 40px; height: 40px; border-radius: 999px; display: flex; align-items: center; justify-content: center; color: #383f5c; transition: color 0.2s ease, background 0.2s ease;" style-hover="color: #fdebd4; background: #383f5c;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg></a>
+          <a href="mailto:Jessicamabrego@gmail.com" aria-label="Email" style="width: 40px; height: 40px; border-radius: 999px; display: flex; align-items: center; justify-content: center; color: #383f5c; transition: color 0.2s ease, background 0.2s ease;" style-hover="color: #fdebd4; background: #383f5c;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></a>
+        </div>
+      </div>
+      <div style="width: 100%; border-top: 1.5px solid #8c8a99; display: flex; justify-content: center; gap: 24px; padding: 40px 0 44px;">
+        <a href="Home.dc.html" style="font-family: 'Karla', sans-serif; font-size: 15px; color: #6b6a7c;" style-hover="color: #383f5c;">Home</a>
+        <a href="About%20v2.dc.html" style="font-family: 'Karla', sans-serif; font-size: 15px; color: #6b6a7c;" style-hover="color: #383f5c;">About</a>
+        <a href="Resume.dc.html" style="font-family: 'Karla', sans-serif; font-size: 15px; color: #6b6a7c;" style-hover="color: #383f5c;">Resume</a>
+      </div>
+    </footer>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const NAV = [['overview', 'Overview'], ['problem', 'Challenge'], ['process', 'Process'], ['research', 'Research'], ['system', 'Design System'], ['screens', 'Screens'], ['iteration', 'Iteration'], ['icons', 'Icons'], ['outcomes', 'Outcomes'], ['reflection', 'Reflection']];
+class Component extends DCLogic {
+  state = {};
+  componentDidMount() {
+    this.onScroll = () => {
+      const se = document.scrollingElement || document.documentElement, y = se.scrollTop, vh = window.innerHeight;
+      let active = NAV[0][0];
+      for (const [id] of NAV) { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top < vh * 0.35) active = id; }
+      const wide = window.innerWidth >= 1380, shown = y > 300;
+      if (active !== this.state.navActive || wide !== this.state.navWide || shown !== this.state.navShown) this.setState({ navActive: active, navWide: wide, navShown: shown });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onScroll);
+    this.onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); window.removeEventListener('resize', this.onScroll); }
+  renderVals() {
+    return {
+      proto: 'https://www.figma.com/proto/RQ5B6DZCrl6ABJtJWsRayn/Data-Dignity---Template---Jessica-Anderson--Copy-?node-id=10838-97&p=f&viewport=393%2C221%2C0.21&t=jkj7HSOxEd9kMDCK-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=10838%3A97&page-id=10664%3A759',
+      navWide: !!this.state.navWide, navNarrow: !this.state.navWide, navOp: this.state.navShown ? 1 : 0, navPe: this.state.navShown ? 'auto' : 'none',
+      navItems: NAV.map(([id, label]) => { const act = (this.state.navActive || 'overview') === id; return { id, label, color: act ? '#383f5c' : '#9a98a8', weight: act ? 600 : 400, bar: act ? '28px' : '12px', pillBg: act ? '#383f5c' : 'transparent', pillText: act ? '#ffffff' : '#6b6a7c',
+        go: (e) => { e.preventDefault(); const el = document.getElementById(id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' }); } }; }),
+      tools: ['Figma', 'Canva', 'After Effects'],
+      highlights: [{ stat: '3', label: 'Core hi-fi screens designed' }, { stat: 'WCAG 2.1 AA', label: 'Accessibility standard met throughout' }, { stat: '8-pt', label: 'Grid system applied across all screens' }, { stat: '2040', label: 'Fictional scenario: Digital Dignity Act' }],
+      process: [
+        { n: '1', label: 'Discovery & Definition', items: ['Persona research: Alex Martinez, deuteranopia', 'Two credible accessibility sources (W3C, NN/g)', 'Use case definition: data visibility gap post-2040 Act', 'Moodboard: visual direction & aesthetic tone'] },
+        { n: '2', label: 'Design & Build', items: ['Low-fidelity wireframes in Figma', 'Color palette & typography system', '8-point grid implementation', 'High-fidelity screens: Dashboard, Data Management, Settings'] },
+        { n: '3', label: 'Iteration', items: ['Instructor feedback addressed systematically', 'Peer critique incorporated for three classmates', 'Onboarding screens added and refined', 'Animated icons created in After Effects'] },
+        { n: '4', label: 'Documentation', items: ['30-slide final presentation in Canva', 'Section dividers, annotated mockups, component specs', '1000-word self-evaluation & reflection paper', 'APA-formatted citations throughout'] },
+      ],
+      sources: [
+        { org: 'W3C Web Accessibility Initiative', title: 'Understanding Success Criterion 1.4.1: Use of Color', body: 'Color must never be the sole visual means of conveying information. This principle drove every data visualization decision: shape, position, stroke weight, and text labels were layered alongside color throughout the interface.' },
+        { org: 'Nielsen Norman Group', title: '5 Visual Treatments That Improve Accessibility', body: "Gordon's (2025) framework informed the use of multiple simultaneous encoding methods: pattern hatching, icon indicators, and numerical labels appear alongside color in charts and status indicators, ensuring no information is lost for color-blind users." },
+      ],
+      persona: [
+        { title: 'Goals', items: ['Understand what personal data exists and where it lives', 'Read data visualizations without relying on color alone', 'Control permissions across multiple platforms from one place', 'Navigate clean, minimal interfaces efficiently'] },
+        { title: 'Challenges', items: ['Misinterprets color-based data charts (red/green indistinguishable)', 'Frustrated by interfaces with poor color contrast', 'Cannot rely on hue alone to distinguish data categories', 'Believes accessibility should be a standard, not a feature'] },
+      ],
+      swatches: [{ name: 'Deep Magenta', hex: '#A6377F' }, { name: 'Lime Green', hex: '#A0BF30' }, { name: 'Blue', hex: '#3593DC' }, { name: 'Dark Blue', hex: '#1F72A6' }, { name: 'Bright Magenta', hex: '#C71585' }, { name: 'Light Gray', hex: '#F5F5F5' }],
+      spacing: ['8-point grid applied to all margins and padding', 'Component internal gaps: 8px, 16px, 24px, 32px', 'Card corner radius: 8px (subtle), 12px (prominent)', 'Touch targets: minimum 44×44px for all interactive elements'],
+      contrast: [
+        { label: 'White on Deep Magenta', ratio: '~6:1 AA', fg: '#ffffff', bg: '#A6377F' },
+        { label: 'Black on Lime Green', ratio: '~10:1 AAA', fg: '#000000', bg: '#A0BF30' },
+        { label: 'White on Dark Blue', ratio: '~5.2:1 AA', fg: '#ffffff', bg: '#1F72A6' },
+        { label: 'Black on Light Gray', ratio: '~19:1 AAA', fg: '#000000', bg: '#F5F5F5' },
+      ],
+      encodings: [
+        { n: '01', title: 'Shape differentiation', body: 'Icons and status markers use distinct shapes (not just color), so no two states look identical when viewed in grayscale.' },
+        { n: '02', title: 'Position indicators', body: 'Data categories use spatial position and grouping as a primary organizer, with color as a secondary reinforcement.' },
+        { n: '03', title: 'Stroke weights', body: 'Interactive vs. inactive states use both color shifts and stroke-weight changes, ensuring toggle states are always unambiguous.' },
+        { n: '04', title: 'Text labels & numbers', body: 'Every chart segment and status indicator carries a numeric or textual label; data is never conveyed by color alone.' },
+      ],
+      finals: [
+        { screen: 'dashboard', title: 'Dashboard', sub: 'Data overview & visualizations' },
+        { screen: 'management', title: 'Data Management', sub: 'Source controls & permissions' },
+        { screen: 'settings', title: 'Settings', sub: 'Privacy & accessibility controls' },
+      ],
+      onboarding: [
+        { comp: 'OnboardingScreen1', n: '01', title: 'Welcome' },
+        { comp: 'OnboardingScreen2', n: '02', title: 'Privacy Promise' },
+        { comp: 'OnboardingScreen3', n: '03', title: 'Ready to Begin' },
+      ],
+      versions: [
+        { v: 'V1', tag: 'Self-directed', ver: 'v1', title: 'First Draft: Initial Hi-Fi Screens', items: ['Dashboard built with pink/magenta background, centered text throughout, no bottom navigation', 'Security bars present but no numerical data, only color-coded labels', 'Data category cards created in a 2×2 grid layout', 'Data Management screen showed connected sources with toggles but no off-state visual distinction', 'Settings laid out as a single scrollable list, no section groupings', 'Typography inconsistent: headers too large (36px), text running into card borders'] },
+        { v: 'V2', tag: 'Instructor feedback', ver: 'v2', title: "After Instructor Zoom Feedback: Haley's Review", items: ['Bottom navigation bar added across all three screens, a critical missing element for usability', 'Background changed from saturated pink to white for reduced visual noise', 'Header font sizes reduced from 36px to 32px for appropriate mobile hierarchy', 'Text alignment standardized: centered headings converted to left-aligned throughout', 'Quantifiable data added to security bars: percentages (65%, 25%, 10%) placed inside or beside each bar', 'Cloud Storage "off" toggle state added: label color dimmed to #999999, icon opacity reduced to indicate disabled state', 'Notification yellow updated to a darker, higher-contrast shade to address hue similarity concerns'] },
+        { v: 'V3', tag: 'Peer feedback', ver: 'v3', title: 'After Peer Critique: Priyanka & Savitri', items: ['Text sizing further refined: label sizes reduced and made consistent across all cards', 'Contrast issues flagged: Mobile Device source icon darkened; toggle stroke outlines added for clearer interactive affordance', '"At Risk" and "Secure" status badges added to Data Management screen: combined icon + text label ensures color-blind users can distinguish states', 'Spacing between cards increased on Data Management screen to reduce visual density', 'Card shadow/outline softened so hierarchy felt more breathable, particularly on dense screens', 'Text size hierarchy tightened across Settings sections for cleaner grouping'] },
+        { v: 'V4', tag: 'Final iteration', ver: 'final', title: 'Final Submission: Rubric Compliance Pass', items: ['2040 narrative (Digital Dignity Act, President Penn) integrated explicitly into presentation context slide', 'Annotation slides added with numbered callouts for all three screens, 5 annotations per screen', 'Onboarding flow designed and added: 3-screen sequence (Welcome → Privacy Promise → Ready to Begin) with progress dots', "Design rationale expanded to connect each decision to the project brief's core values: transparency, approachability, user empowerment", 'APA citations finalized for both research sources (W3C and Nielsen Norman Group)', 'Presentation organized into 30 slides with section dividers, two-column layouts, and color-coded annotation boxes'] },
+      ],
+      icons: [
+        { src: 'assets/data-dignity/icon-app.svg', title: 'App Icon', body: "Purple location pin with data dots, representing the app's core identity", animated: true },
+        { src: 'assets/data-dignity/icon-import.svg', title: 'Import Icon', body: 'Lime green down arrow with tray, representing bringing data in', animated: true },
+        { src: 'assets/data-dignity/icon-dashboard.svg', title: 'Dashboard Icon', body: 'Blue 2×2 grid: navigation icon for the main dashboard screen', animated: false },
+        { src: 'assets/data-dignity/icon-export.svg', title: 'Export Icon', body: 'Blue up arrow with tray, representing sending or exporting data out', animated: false },
+        { src: 'assets/data-dignity/icon-privacy-clean.svg', title: 'Privacy Icon', body: 'Purple hexagon with checkmark, representing privacy protection status', animated: false },
+      ],
+      aeSteps: [
+        { n: 'Step 1', title: 'Figma export', body: 'Icons sized to fit the circular keyline grid (roughly 12–14px at 16×16 artboard scale) and exported as SVGs, verified to be clean vector files before import.' },
+        { n: 'Step 2', title: 'Composition setup', body: 'New compositions created at 400×400px, 30fps, 1.5 second duration, one per icon. SVG files imported as Footage and added to the timeline.' },
+        { n: 'Step 3', title: 'Keyframe animation', body: "Stopwatches activated on Position and Opacity properties. Start and end keyframes set so the icon's end state matches its start state, creating a seamless loop." },
+        { n: 'Step 4', title: 'Export via Render Queue', body: 'Both compositions added to the Render Queue with H.264 / MP4 output settings. Rendered sequentially and submitted as two separate video files.' },
+      ],
+      animations: [
+        { icon: 'App Icon: Purple location pin', rows: [{ k: 'Transform 1: Position', v: 'Drops from off-screen (top) to center position' }, { k: 'Transform 2: Opacity', v: 'Fades in from 0% → 100%' }, { k: 'Effect', v: 'Drop-in effect reinforcing a "landing" / location metaphor' }] },
+        { icon: 'Import Icon: Lime green down arrow', rows: [{ k: 'Transform 1: Position', v: 'Slides down from off-screen (top) to center' }, { k: 'Transform 2: Opacity', v: 'Fades in from 0% → 100%' }, { k: 'Effect', v: 'Downward slide reinforces the import/download action visually' }] },
+      ],
+      outcomes: ['WCAG 2.1 AA compliance', 'Complete design system', 'Multiple visual encodings', '8-point grid throughout', 'Onboarding flow designed', 'Animated icons in After Effects', '30-slide final presentation', '1000-word reflection paper', 'Credible research cited', 'Instructor feedback integrated'],
+    };
+  }
+}
+</script>
+</body>
+</html>

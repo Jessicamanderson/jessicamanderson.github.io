@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Roboto:wght@400;500&family=Karla:wght@400;500;600&display=swap">
+<style>
+  body { margin: 0; background: #ffffff; }
+  a { color: #383f5c; text-decoration: none; }
+  a:hover { color: #1f2438; }
+</style>
+</helmet>
+<div data-screen-label="Pearl case study" style="background: #ffffff; min-height: 100vh; font-family: 'Roboto', system-ui, sans-serif; color: #383f5c; overflow-x: clip;">
+  <sc-if value="{{ navWide }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Case study sections" style="position: fixed; left: 28px; top: 50%; transform: translateY(-50%); z-index: 30; display: flex; flex-direction: column; gap: 4px; opacity: {{ navOp }}; transition: opacity 0.3s ease;">
+      <sc-for list="{{ navItems }}" as="it" hint-placeholder-count="8">
+        <a href="#{{ it.id }}" onClick="{{ it.go }}" style="display: flex; align-items: center; gap: 12px; padding: 7px 0; font-family: 'Karla', sans-serif; font-size: 15px; color: {{ it.color }}; font-weight: {{ it.weight }};" style-hover="color: #383f5c;">
+          <span style="width: {{ it.bar }}; height: 2px; background: {{ it.color }}; border-radius: 2px; transition: width 0.25s ease;"></span>{{ it.label }}</a>
+      </sc-for>
+    </nav>
+  </sc-if>
+  <sc-if value="{{ navNarrow }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Case study sections" style="position: sticky; top: 0; z-index: 30; background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(8px); box-shadow: 0 2px 12px rgba(196, 160, 112, 0.18); display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 10px 16px; opacity: {{ navOp }}; pointer-events: {{ navPe }}; transition: opacity 0.3s ease;">
+      <sc-for list="{{ navItems }}" as="it" hint-placeholder-count="8">
+        <a href="#{{ it.id }}" onClick="{{ it.go }}" style="flex-shrink: 0; font-family: 'Karla', sans-serif; font-size: 14px; color: {{ it.pillText }}; background: {{ it.pillBg }}; border-radius: 999px; padding: 7px 14px; white-space: nowrap;">{{ it.label }}</a>
+      </sc-for>
+    </nav>
+  </sc-if>
+  <div style="max-width: 1120px; margin: 0 auto; padding: 56px 40px 0; display: flex; flex-direction: column;">
+
+    <a href="Home.dc.html" style="font-family: 'Playfair Display', serif; font-size: 18px; color: #383f5c; display: flex; align-items: center; gap: 8px; align-self: flex-start;" style-hover="color: #1f2438;"><span>⟵</span> Back</a>
+
+    <section data-screen-label="Hero" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; padding: 48px 0 72px;">
+      <div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 24px;">
+        <div style="display: flex; align-items: center; gap: 14px; margin-left: calc(-1 * (max(0px, (100vw - 1120px) / 2) + 40px));">
+          <span style="flex: 0 0 calc(max(0px, (100vw - 1120px) / 2) + 26px); height: 3px; background: #383f5c;"></span>
+          <h1 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(34px, 4.2vw, 58px); line-height: 1.08; margin: 0; color: #383f5c; text-wrap: balance;">SAAS Platform for Job Seekers</h1>
+        </div>
+        <p style="font-size: 18px; line-height: 1.55; color: #7d7c90; margin: 0; max-width: 440px; text-wrap: pretty;">A portfolio building platform catering to applicants with non-traditional backgrounds.</p>
+      </div>
+      <div style="flex: 1.25 1 360px; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+        <a href="https://www.figma.com/proto/yLuAtWXHRt6GeIojWSEmEl/P4---Pearl--Copy-?content-scaling=fixed&amp;kind=proto&amp;node-id=266-1709&amp;page-id=48%3A148&amp;scaling=scale-down" target="_blank" rel="noopener" style="display: block; width: 100%; transition: transform 0.3s ease;" style-hover="transform: translateY(-4px);">
+          <div style="position: relative; width: 100%; filter: drop-shadow(0 18px 28px rgba(196, 160, 112, 0.3));">
+            <img src="assets/pearl/laptop-frame.png" alt="Pearl dashboard on a laptop, open the prototype" style="position: relative; z-index: 2; pointer-events: none; width: 100%; display: block;">
+            <div ref="{{ screenRef }}" onMouseEnter="{{ screenHold }}" onMouseLeave="{{ screenRelease }}" style="position: absolute; left: 9%; top: 2.145%; width: 81.93%; height: 87.01%; border-radius: 0.8% 0.8% 0 0 / 1.2% 1.2% 0 0; overflow-y: auto; scrollbar-width: none; background: #ffffff;">
+              <img src="assets/pearl/home-full.png" alt="Full Pearl home page" style="width: 100%; display: block;">
+            </div>
+          </div>
+        </a>
+        <a href="https://www.figma.com/proto/yLuAtWXHRt6GeIojWSEmEl/P4---Pearl--Copy-?content-scaling=fixed&amp;kind=proto&amp;node-id=266-1709&amp;page-id=48%3A148&amp;scaling=scale-down" target="_blank" rel="noopener" style="font-family: 'Karla', sans-serif; font-weight: 600; font-size: 16px; color: #ffffff; background: #383f5c; border-radius: 999px; padding: 12px 22px; display: flex; align-items: center; gap: 10px;" style-hover="background: #262b42; color: #ffffff;">View prototype <span>↗</span></a>
+      </div>
+    </section>
+
+    <section data-screen-label="Intro" style="display: flex; flex-wrap: wrap; gap: 32px 72px; align-items: flex-start; padding: 0 0 96px;">
+      <p style="flex: 1.2 1 380px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.3; margin: 0; color: #383f5c; text-wrap: pretty;">Developing a dashboard to help job seekers look competent, feel confident, and give them a competitive edge.</p>
+      <div style="flex: 1 1 320px; padding-top: 6px;">
+        <p style="font-size: 18px; line-height: 1.6; color: #4a4f68; margin: 0; text-wrap: pretty;">Pearl is a job search platform for event organizers, job seekers and employers, built for applicants with non-traditional backgrounds. The Pearl team asked us to improve the visual dashboard for job seekers.</p>
+      </div>
+    </section>
+
+    <section id="overview" data-screen-label="Overview" style="scroll-margin-top: 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; padding: 40px 0 120px; border-top: 1.5px solid #8c8a99;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px; margin: 0;">My Role</h3>
+        <p style="font-size: 15px; line-height: 1.7; color: #4a4f68; margin: 0;">Project Manager<br>UX Research Lead</p>
+        <p style="font-size: 14px; line-height: 1.7; color: #6b6a7c; margin: 0;">Scope of work · Competitive &amp; comparative analysis · Surveys &amp; interview plan · Synthesis · Daily scrum · Point of contact</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px; margin: 0;">Design Team</h3>
+        <p style="font-size: 15px; line-height: 1.7; color: #4a4f68; margin: 0;">Jessica Anderson, PM &amp; Research Lead<br>Yanfeng Dong, UI &amp; UX Research<br>Saba Abramidze, UI Lead</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px; margin: 0;">Timeline</h3>
+        <p style="font-size: 15px; line-height: 1.7; color: #4a4f68; margin: 0;">3 weeks</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px; margin: 0;">Tools</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <sc-for list="{{ tools }}" as="t" hint-placeholder-count="7">
+            <span style="font-family: 'Karla', sans-serif; font-size: 14px; color: #4a4f68; background: #ffffff; box-shadow: 0 2px 8px rgba(196, 160, 112, 0.25); border-radius: 999px; padding: 6px 12px;">{{ t }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem" data-screen-label="Problem" style="scroll-margin-top: 80px; display: flex; flex-wrap: wrap; gap: 64px; padding: 0 0 120px;">
+      <div style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 20px;">
+        <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">The problem</span>
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 36px; line-height: 1.15; margin: 0; text-wrap: pretty;">Traffic tripled in a month, but most new users left before finishing a portfolio.</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">In 2024 Pearl partnered with DreamCon, and its user base tripled in one month. The surge brought analytics and feedback that showed where the experience broke down.</p>
+      </div>
+      <div style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 24px 28px; display: flex; align-items: baseline; gap: 20px;">
+          <span style="font-family: 'Playfair Display', serif; font-size: 48px; color: #383f5c; flex: 0 0 140px;">61.8%</span>
+          <span style="font-size: 16px; line-height: 1.5; color: #4a4f68;">bounce rate for new users, with only 4% retention</span>
+        </div>
+        <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 24px 28px; display: flex; align-items: baseline; gap: 20px;">
+          <span style="font-family: 'Playfair Display', serif; font-size: 48px; color: #383f5c; flex: 0 0 140px;">3 min</span>
+          <span style="font-size: 16px; line-height: 1.5; color: #4a4f68;">average site engagement time</span>
+        </div>
+        <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 24px 28px; display: flex; align-items: baseline; gap: 20px;">
+          <span style="font-family: 'Playfair Display', serif; font-size: 30px; color: #383f5c; flex: 0 0 140px;">Friction</span>
+          <span style="font-size: 16px; line-height: 1.5; color: #4a4f68;">reported when setting up an account and portfolio</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="solution" data-screen-label="Solution" style="scroll-margin-top: 80px; display: flex; flex-direction: column; gap: 36px; padding: 0 0 120px;">
+      <div style="display: flex; flex-direction: column; gap: 20px; max-width: 760px;">
+        <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">The solution</span>
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 36px; line-height: 1.15; margin: 0; text-wrap: pretty;">A redesigned onboarding and portfolio flow, now live on Pearl.</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+        <sc-for list="{{ solutions }}" as="s" hint-placeholder-count="3">
+          <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-family: 'Playfair Display', serif; font-size: 28px; color: #f2a7c3;">{{ s.n }}</span>
+            <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 21px; margin: 0;">{{ s.title }}</h3>
+            <p style="font-size: 15px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">{{ s.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="position: relative; width: 100%; max-width: 900px; align-self: center; filter: drop-shadow(0 18px 28px rgba(196, 160, 112, 0.35));">
+        <img src="assets/pearl/laptop-frame.png" alt="" style="position: relative; z-index: 2; pointer-events: none; width: 100%; display: block;">
+        <div style="position: absolute; left: 9%; top: 2.145%; width: 81.93%; height: 87.01%; border-radius: 0.8% 0.8% 0 0 / 1.2% 1.2% 0 0; overflow: hidden; background: #ffffff;">
+          <img src="assets/pearl/i08.png" alt="Pearl's live homepage" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Process" style="display: flex; flex-direction: column; gap: 28px; padding: 0 0 120px;">
+      <h2 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 32px; margin: 0;">My Design Process</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <sc-for list="{{ process }}" as="p" hint-placeholder-count="6">
+          <div style="display: flex; align-items: center; gap: 10px; background: #ffffff; box-shadow: 0 2px 8px rgba(196, 160, 112, 0.25); border-radius: 999px; padding: 10px 18px 10px 10px;">
+            <span style="width: 28px; height: 28px; border-radius: 999px; background: #383f5c; color: #fdebd4; font-family: 'Karla', sans-serif; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center;">{{ p.n }}</span>
+            <span style="font-family: 'Karla', sans-serif; font-size: 16px; color: #383f5c;">{{ p.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </div>
+
+  <section id="research" data-screen-label="Research" style="scroll-margin-top: 80px; background: #ffffff; padding: 100px 40px;">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 96px;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">01 · Discovery &amp; Research</span>
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 40px; margin: 0;">Screener Surveys</h2>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 56px; align-items: center; margin-top: -56px;">
+        <div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 18px;">
+          <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">We first targeted DreamCon job seekers to match Pearl's partnership. When responses fell short, I pivoted recruitment to keep our three-week sprint on track.</p>
+          <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">I designed a screener that kept our core objectives but broadened the pool to people in the hiring process, especially non-traditional job seekers outside tech, and gathered <strong style="color: #383f5c;">58 qualified participants</strong>.</p>
+          <p style="font-size: 15px; line-height: 1.7; color: #6b6a7c; margin: 0;">Focus: portfolio experiences · barriers to building one · job-application pain points · desired platform features</p>
+        </div>
+        <div style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 16px;">
+          <div onMouseLeave="{{ pieClear }}" style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 26px 28px; display: flex; flex-direction: column; gap: 20px;">
+            <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Barriers to building a portfolio</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 24px 28px; align-items: center;">
+              <div style="position: relative; flex: 0 0 168px; width: 168px; height: 168px;">
+                <svg viewBox="0 0 42 42" width="168" height="168" style="display: block; transform: rotate(-90deg);" aria-hidden="true">
+                  <sc-for list="{{ pie }}" as="s" hint-placeholder-count="5">
+                    <circle cx="21" cy="21" r="15.915" fill="none" stroke="{{ s.color }}" stroke-width="{{ s.sw }}" stroke-dasharray="{{ s.dash }}" stroke-dashoffset="{{ s.offset }}" onMouseEnter="{{ s.hover }}" style="transition: stroke-width 0.2s ease; cursor: pointer;"></circle>
+                  </sc-for>
+                </svg>
+                <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; pointer-events: none;">
+                  <span style="font-family: 'Playfair Display', serif; font-size: 30px; line-height: 1; color: #383f5c;">{{ pieFocus.pct }}</span>
+                </div>
+              </div>
+              <div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 4px;">
+                <sc-for list="{{ pie }}" as="s" hint-placeholder-count="5">
+                  <div onMouseEnter="{{ s.hover }}" style="display: flex; align-items: center; gap: 10px; padding: 6px 8px; border-radius: 8px; background: {{ s.rowBg }}; cursor: default; transition: background 0.2s ease;">
+                    <span style="width: 12px; height: 12px; border-radius: 4px; background: {{ s.color }}; flex-shrink: 0;"></span>
+                    <span style="flex: 1 1 auto; font-size: 14px; line-height: 1.35; color: #4a4f68;">{{ s.label }}</span>
+                    <span style="font-family: 'Karla', sans-serif; font-weight: 600; font-size: 14px; color: #383f5c;">{{ s.pct }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+          <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 28px 28px 22px; display: flex; flex-direction: column; gap: 16px;">
+            <div onClick="{{ stat.next }}" style="cursor: pointer; display: flex; flex-direction: column; gap: 14px; min-height: 150px;">
+              <span style="font-family: 'Playfair Display', serif; font-size: 56px; line-height: 1; color: #383f5c;">{{ stat.value }}</span>
+              <div style="height: 14px; border-radius: 999px; background: #a9b8f5; overflow: hidden;">
+                <div style="height: 100%; width: {{ stat.value }}; background: #dcc3f7; border-radius: 999px; transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);"></div>
+              </div>
+              <p style="font-size: 18px; line-height: 1.45; color: #383f5c; margin: 0; text-wrap: pretty;">{{ stat.label }}</p>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <button onClick="{{ stat.prev }}" aria-label="Previous stat" style="width: 40px; height: 40px; border-radius: 999px; border: none; background: #ffffff; box-shadow: 0 3px 10px rgba(196, 160, 112, 0.35); color: #383f5c; font-size: 18px; cursor: pointer;">‹</button>
+              <div style="display: flex; gap: 6px;">
+                <sc-for list="{{ stat.dots }}" as="d" hint-placeholder-count="3">
+                  <button onClick="{{ d.go }}" aria-label="Go to stat" style="width: 9px; height: 9px; padding: 0; border-radius: 999px; border: none; background: {{ d.bg }}; cursor: pointer;"></button>
+                </sc-for>
+              </div>
+              <button onClick="{{ stat.next }}" aria-label="Next stat" style="width: 40px; height: 40px; border-radius: 999px; border: none; background: #ffffff; box-shadow: 0 3px 10px rgba(196, 160, 112, 0.35); color: #383f5c; font-size: 18px; cursor: pointer;">›</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start; margin-top: -40px;">
+        <div style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 10px;">
+          <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Who responded</span>
+          <p style="font-family: 'Playfair Display', serif; font-size: 26px; line-height: 1.3; margin: 0; color: #383f5c; text-wrap: pretty;"><strong style="font-weight: 600;">58 participants</strong> seeking a variety of roles across industries.</p>
+        </div>
+        <div style="flex: 1.4 1 380px; display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 4px 16px; align-items: center;">
+            <span style="font-family: 'Playfair Display', serif; font-size: 24px; color: #383f5c;">42%</span>
+            <div style="height: 12px; border-radius: 999px; background: #f1ece4; overflow: hidden;"><div style="height: 100%; width: 42%; background: #dcc3f7; border-radius: 999px;"></div></div>
+            <span></span>
+            <span style="font-size: 15px; line-height: 1.45; color: #4a4f68;">Data Analysts or related roles <span style="color: #8c8a99;">(Database Analyst, Data Analytics)</span></span>
+          </div>
+          <div style="display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 4px 16px; align-items: center;">
+            <span style="font-family: 'Playfair Display', serif; font-size: 24px; color: #383f5c;">19%</span>
+            <div style="height: 12px; border-radius: 999px; background: #f1ece4; overflow: hidden;"><div style="height: 100%; width: 19%; background: #dcc3f7; border-radius: 999px;"></div></div>
+            <span></span>
+            <span style="font-size: 15px; line-height: 1.45; color: #4a4f68;">Sales roles <span style="color: #8c8a99;">(Representatives and Managers)</span></span>
+          </div>
+          <div style="display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 4px 16px; align-items: center;">
+            <span style="font-family: 'Playfair Display', serif; font-size: 24px; color: #383f5c;">19%</span>
+            <div style="height: 12px; border-radius: 999px; background: #f1ece4; overflow: hidden;"><div style="height: 100%; width: 19%; background: #dcc3f7; border-radius: 999px;"></div></div>
+            <span></span>
+            <span style="font-size: 15px; line-height: 1.45; color: #4a4f68;">Product or Project Management</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 4px 16px; align-items: center;">
+            <span style="font-family: 'Playfair Display', serif; font-size: 24px; color: #383f5c;">6%</span>
+            <div style="height: 12px; border-radius: 999px; background: #f1ece4; overflow: hidden;"><div style="height: 100%; width: 6%; background: #dcc3f7; border-radius: 999px;"></div></div>
+            <span></span>
+            <span style="font-size: 15px; line-height: 1.45; color: #4a4f68;">Business Analysts</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 4px 16px; align-items: center;">
+            <span style="font-family: 'Playfair Display', serif; font-size: 24px; color: #383f5c;">13%</span>
+            <div style="height: 12px; border-radius: 999px; background: #f1ece4; overflow: hidden;"><div style="height: 100%; width: 13%; background: #dcc3f7; border-radius: 999px;"></div></div>
+            <span></span>
+            <span style="font-size: 15px; line-height: 1.45; color: #4a4f68;">Other roles <span style="color: #8c8a99;">(Executive Assistant, Financial Analyst)</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 32px;">
+        <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px;">
+          <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 36px; margin: 0;">Opportunities for Improvement</h2>
+          <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">Survey results pointed to a need for a guided experience that demystifies portfolio building. A heuristic analysis pinpointed where the platform could simplify.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+          <sc-for list="{{ heuristics }}" as="h" hint-placeholder-count="3">
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <img src="{{ h.img }}" alt="{{ h.title }}" style="width: 100%; border-radius: 16px; display: block; background: #fff;">
+              <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px; margin: 0;">{{ h.title }}</h3>
+              <p style="font-size: 15px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">{{ h.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 32px;">
+        <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px;">
+          <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 36px; margin: 0;">Interviews</h2>
+          <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">With the team I wrote a 32-question script on values, motivations and routines, then recruited and remotely interviewed 7 users in 4 days. We referred back to these findings through the whole project.</p>
+        </div>
+        <div ref="{{ chartRef }}" style="width: 100%; max-width: 920px; align-self: center; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 36px 28px; padding: 24px 8px 8px;">
+          <sc-for list="{{ affinity }}" as="n" hint-placeholder-count="12">
+            <div style="position: relative; aspect-ratio: 1; opacity: {{ n.op }}; transform: {{ n.enter }}; transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1); transition-delay: {{ n.delay }}; z-index: 1;" style-hover="z-index: 20;">
+              <div tabindex="0" style="position: relative; width: 100%; height: 100%; box-sizing: border-box; padding: 9% 8%; background: {{ n.bg }}; border-radius: 6px; box-shadow: 0 2px 8px rgba(46, 43, 37, 0.10); display: flex; align-items: center; justify-content: center; text-align: center; transform: rotate({{ n.rot }}); transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.3s ease; cursor: zoom-in; outline: none;" style-hover="transform: scale(1.25) rotate(0deg); box-shadow: 0 14px 32px rgba(46, 43, 37, 0.22);" style-focus="transform: scale(1.25) rotate(0deg); box-shadow: 0 14px 32px rgba(46, 43, 37, 0.22);">
+                <span style="position: absolute; top: -11px; left: 50%; width: 64px; height: 22px; transform: translateX(-50%) rotate({{ n.tapeRot }}); background: {{ n.tape }}; opacity: 0.85; border-radius: 2px;"></span>
+                <span style="font-family: 'Roboto', sans-serif; font-size: 15px; line-height: 1.4; color: #201e1d;">{{ n.text }}</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+          <sc-for list="{{ insights }}" as="i" hint-placeholder-count="5">
+            <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 10px;">
+              <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 18px; margin: 0;">{{ i.title }}</h3>
+              <p style="font-size: 14px; line-height: 1.6; color: #4a4f68; margin: 0; text-wrap: pretty;">{{ i.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 28px;">
+        <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px;">
+          <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 36px; margin: 0;">Persona</h2>
+          <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">We built a persona from our interviews (goals, frustrations and motivations) and kept it updated as new data came in, so we always designed for a real person.</p>
+        </div>
+        <img src="assets/pearl/i19.png" alt="Persona: Kira Watkins" style="width: 100%; border-radius: 20px; display: block;">
+      </div>
+    </div>
+  </section>
+
+  <div style="max-width: 1120px; margin: 0 auto; padding: 100px 40px 0; display: flex; flex-direction: column; gap: 96px;">
+    <section id="design" data-screen-label="Ideation" style="scroll-margin-top: 80px; display: flex; flex-direction: column; gap: 32px;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">02 · Ideation &amp; Design</span>
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 40px; margin: 0;">Prioritizing the must-haves</h2>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 40px;">
+        <div style="position: relative; width: 100%; border-radius: 20px; border: 1.5px solid #eadfce; background: #fff;">
+          <img src="assets/pearl/prioritization-3k.png" alt="Prioritization chart: impact vs. effort quadrants" style="width: 100%; display: block; border-radius: 20px;">
+          <sc-for list="{{ prioSpots }}" as="p" hint-placeholder-count="0">
+            <div tabindex="0" style="position: absolute; left: {{ p.l }}; top: {{ p.t }}; width: {{ p.w }}; height: {{ p.h }}; background-image: url(assets/pearl/prioritization-3k.png); background-size: {{ p.bs }}; background-position: {{ p.bp }}; background-repeat: no-repeat; border-radius: 2px; transform: scale(1); transition: transform 0.28s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.28s ease; cursor: zoom-in; outline: none; z-index: 1;" style-hover="transform: scale(3); box-shadow: 0 12px 30px rgba(46, 43, 37, 0.3); z-index: 20;" style-focus="transform: scale(3); box-shadow: 0 12px 30px rgba(46, 43, 37, 0.3); z-index: 20;"></div>
+          </sc-for>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 18px; max-width: 760px;">
+          <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">Research gave us more ideas than three weeks allowed. A prioritization chart kept us focused on the essentials. Our design vision:</p>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <sc-for list="{{ vision }}" as="v" hint-placeholder-count="4">
+              <div style="display: flex; gap: 12px; align-items: flex-start;">
+                <span style="width: 8px; height: 8px; border-radius: 999px; background: #f2a7c3; margin-top: 9px; flex-shrink: 0;"></span>
+                <span style="font-size: 16px; line-height: 1.55; color: #383f5c;">{{ v }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Wireframes" style="display: flex; flex-direction: column; gap: 32px;">
+      <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 36px; margin: 0;">Lo-fi wireframes</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center;">
+        <div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 16px;">
+          <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">The new home screen mirrors Pearl's original, with one key change: cards now represent the steps to a first portfolio, a mission-based journey, like a video game. A "Get started" call to action invites users to begin.</p>
+        </div>
+        <img src="assets/pearl/i23.png" alt="Wireframe of the redesigned home screen" style="flex: 1.3 1 420px; min-width: 0; display: block;">
+      </div>
+      <img src="assets/pearl/i22.png" alt="Sketch wireframes" style="width: 100%; border-radius: 20px; background: #fff; display: block;">
+    </section>
+
+    <section data-screen-label="Steps" style="display: flex; flex-direction: column; gap: 96px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center;">
+          <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 14px;">
+            <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Step 1</span>
+            <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 30px; line-height: 1.15; margin: 0;">Getting started with basic information</h3>
+            <p style="font-size: 16px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty; max-width: 640px;">A single “Get Started” button opens onboarding, where users add work experience, skills, resume and LinkedIn, information they already know, so they start grounded and confident.</p>
+          </div>
+          <div style="flex: 1.3 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+            <img src="assets/pearl/i24.png" alt="Start with basic information screen" style="width: 100%; display: block;">
+            <img src="assets/pearl/i40.png" alt="Adding skills during onboarding" style="width: 100%; display: block;">
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 32px;">
+          <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 14px;">
+            <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Step 2</span>
+            <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 30px; line-height: 1.15; margin: 0;">Portfolio examples</h3>
+            <p style="font-size: 16px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty; max-width: 640px;">After entering their information, users explore example portfolios for inspiration and a clear vision of what they’re working toward. A modal overlay keeps them anchored in the flow while offering inspiring examples at a glance.</p>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+            <img src="assets/pearl/i32.png" alt="Example portfolio, light mode" style="width: 100%; display: block;">
+            <img src="assets/pearl/i33.png" alt="Example portfolio, dark mode" style="width: 100%; display: block;">
+          </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center;">
+          <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 14px;">
+            <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Step 3</span>
+            <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 30px; line-height: 1.15; margin: 0;">Style customization for personal branding</h3>
+            <p style="font-size: 16px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty; max-width: 640px;">Light or dark mode plus an accent color, a low-effort way to personalize, with live previews that show the portfolio taking shape and build confidence.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 14px; flex: 1.3 1 420px; min-width: 0;">
+            <div style="position: relative; display: flex; align-items: center;">
+              <button onClick="{{ c3.prev }}" aria-label="Previous" style="position: absolute; left: -8px; z-index: 2; width: 44px; height: 44px; border-radius: 999px; border: none; background: #ffffff; box-shadow: 0 4px 14px rgba(196, 160, 112, 0.35); color: #383f5c; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;" style-hover="background: #fff6ea;">‹</button>
+              <div onClick="{{ c3.next }}" style="width: 100%; cursor: pointer; display: block;">
+                <img src="{{ c3.img }}" alt="{{ c3.caption }}" style="width: 100%; display: block;">
+              </div>
+              <button onClick="{{ c3.next }}" aria-label="Next" style="position: absolute; right: -8px; z-index: 2; width: 44px; height: 44px; border-radius: 999px; border: none; background: #ffffff; box-shadow: 0 4px 14px rgba(196, 160, 112, 0.35); color: #383f5c; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;" style-hover="background: #fff6ea;">›</button>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 14px;">
+              <span style="font-family: 'Karla', sans-serif; font-size: 14px; color: #6b6a7c;">{{ c3.caption }}</span>
+              <div style="display: flex; gap: 6px;">
+                <sc-for list="{{ c3.dots }}" as="d" hint-placeholder-count="3">
+                  <button onClick="{{ d.go }}" aria-label="Go to slide" style="width: 9px; height: 9px; padding: 0; border-radius: 999px; border: none; background: {{ d.bg }}; cursor: pointer;"></button>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 32px;">
+          <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 14px;">
+            <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Step 4</span>
+            <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 30px; line-height: 1.15; margin: 0;">Guided case study creation</h3>
+            <p style="font-size: 16px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty; max-width: 640px;">Each section of the first case study is a clear step with prompts: upload a header image, name the case study, add supporting information, and embed files from Figma, Excel and more. Modular, so it never feels overwhelming.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 14px; width: 100%;">
+            <div style="position: relative; display: flex; align-items: center;">
+              <button onClick="{{ c4.prev }}" aria-label="Previous" style="position: absolute; left: -8px; z-index: 2; width: 44px; height: 44px; border-radius: 999px; border: none; background: #ffffff; box-shadow: 0 4px 14px rgba(196, 160, 112, 0.35); color: #383f5c; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;" style-hover="background: #fff6ea;">‹</button>
+              <div onClick="{{ c4.next }}" style="width: 100%; cursor: pointer; display: block;">
+                <img src="{{ c4.img }}" alt="{{ c4.caption }}" style="width: 100%; display: block;">
+              </div>
+              <button onClick="{{ c4.next }}" aria-label="Next" style="position: absolute; right: -8px; z-index: 2; width: 44px; height: 44px; border-radius: 999px; border: none; background: #ffffff; box-shadow: 0 4px 14px rgba(196, 160, 112, 0.35); color: #383f5c; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;" style-hover="background: #fff6ea;">›</button>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 14px;">
+              <span style="font-family: 'Karla', sans-serif; font-size: 14px; color: #6b6a7c;">{{ c4.caption }}</span>
+              <div style="display: flex; gap: 6px;">
+                <sc-for list="{{ c4.dots }}" as="d" hint-placeholder-count="3">
+                  <button onClick="{{ d.go }}" aria-label="Go to slide" style="width: 9px; height: 9px; padding: 0; border-radius: 999px; border: none; background: {{ d.bg }}; cursor: pointer;"></button>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  </div>
+
+  <section id="testing" data-screen-label="Testing" style="scroll-margin-top: 80px; background: #ffffff; padding: 100px 40px; margin-top: 100px;">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px;">
+      <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px;">
+        <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">03 · Testing &amp; Revising</span>
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 40px; margin: 0;">Usability testing</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">Three rounds of tests around three tasks: start a portfolio, customize its look and feel, and start a case study.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+        <sc-for list="{{ issues }}" as="is" hint-placeholder-count="3">
+          <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 10px;">
+            <span style="font-family: 'Playfair Display', serif; font-size: 52px; line-height: 1; color: #383f5c;">{{ is.stat }}</span>
+            <p style="font-size: 15px; line-height: 1.6; color: #4a4f68; margin: 0;">{{ is.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 40px;">
+        <div style="display: flex; flex-direction: column; gap: 14px; width: 100%;">
+            <div style="position: relative; display: flex; align-items: center;">
+              <button onClick="{{ c5.prev }}" aria-label="Previous" style="position: absolute; left: -8px; z-index: 2; width: 44px; height: 44px; border-radius: 999px; border: none; background: #ffffff; box-shadow: 0 4px 14px rgba(196, 160, 112, 0.35); color: #383f5c; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;" style-hover="background: #fff6ea;">‹</button>
+              <div onClick="{{ c5.next }}" style="width: 100%; cursor: pointer; display: block;">
+                <img src="{{ c5.img }}" alt="{{ c5.caption }}" style="width: 100%; display: block;">
+              </div>
+              <button onClick="{{ c5.next }}" aria-label="Next" style="position: absolute; right: -8px; z-index: 2; width: 44px; height: 44px; border-radius: 999px; border: none; background: #ffffff; box-shadow: 0 4px 14px rgba(196, 160, 112, 0.35); color: #383f5c; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;" style-hover="background: #fff6ea;">›</button>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 14px;">
+              <span style="font-family: 'Karla', sans-serif; font-size: 14px; color: #6b6a7c;">{{ c5.caption }}</span>
+              <div style="display: flex; gap: 6px;">
+                <sc-for list="{{ c5.dots }}" as="d" hint-placeholder-count="3">
+                  <button onClick="{{ d.go }}" aria-label="Go to slide" style="width: 9px; height: 9px; padding: 0; border-radius: 999px; border: none; background: {{ d.bg }}; cursor: pointer;"></button>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 32px; margin: 0;">Key Findings</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px;">
+          <sc-for list="{{ findings }}" as="fd" hint-placeholder-count="3">
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <img src="{{ fd.img }}" alt="{{ fd.title }}" style="width: 100%; display: block; margin-bottom: 8px;">
+              <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">{{ fd.n }}</span>
+              <h4 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 21px; margin: 0;">{{ fd.title }}</h4>
+              <p style="font-size: 15px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">{{ fd.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <div style="max-width: 1120px; margin: 0 auto; padding: 100px 40px 0; display: flex; flex-direction: column; gap: 96px;">
+    <section id="outcomes" data-screen-label="Outcomes" style="scroll-margin-top: 80px; display: flex; flex-direction: column; gap: 28px;">
+      <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Key outcomes</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+        <h2 style="flex: 1 1 320px; font-family: 'Playfair Display', serif; font-weight: 500; font-size: 36px; line-height: 1.2; margin: 0; text-wrap: pretty;">The redesigned onboarding and portfolio creation experience is live on Pearl's platform.</h2>
+        <img src="assets/pearl/i09.png" alt="Pearl's live site: Creating portfolios hasn't been easier" style="flex: 0 1 460px; min-width: 0; border-radius: 16px; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); display: block;">
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+        <sc-for list="{{ outcomes }}" as="o" hint-placeholder-count="3">
+          <div style="border-top: 1.5px solid #8c8a99; padding-top: 18px; display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-family: 'Playfair Display', serif; font-size: 40px; color: #383f5c;">{{ o.stat }}</span>
+            <p style="font-size: 15px; line-height: 1.6; color: #4a4f68; margin: 0;">{{ o.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section data-screen-label="Testimonial" style="display: flex; flex-direction: column; gap: 28px;">
+      <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">From the client</span>
+      <figure style="margin: 0; background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 24px; padding: clamp(28px, 5vw, 56px); display: flex; flex-direction: column; gap: 28px;">
+        <span style="font-family: 'Playfair Display', serif; font-size: 72px; line-height: 0.5; color: #f2a7c3;">“</span>
+        <blockquote style="margin: 0; display: flex; flex-direction: column; gap: 18px;">
+          <p style="font-family: 'Playfair Display', serif; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.5; color: #383f5c; margin: 0; text-wrap: pretty;">I had the pleasure of working with Jessica on a UX project for Pearl, my company, and I was thoroughly impressed by her performance. Despite the tight timeline of our design sprint, Jessica demonstrated exceptional skills in user research and analysis.</p>
+          <p style="font-family: 'Playfair Display', serif; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.5; color: #383f5c; margin: 0; text-wrap: pretty;">Her ability to uncover insightful research findings in such a short period was outstanding. Jessica's enthusiasm and genuine interest in understanding our users was evident throughout the project. She approached challenges with a positive attitude, never getting discouraged when faced with obstacles.</p>
+          <p style="font-family: 'Playfair Display', serif; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.5; color: #383f5c; margin: 0; text-wrap: pretty;">She efficiently managed the research process and showed great resourcefulness in identifying and recruiting suitable interview participants. This skill was crucial in ensuring we gathered valuable user insights within our limited timeframe.</p>
+        </blockquote>
+        <figcaption style="display: flex; align-items: center; gap: 16px;">
+          <img src="assets/pearl/lawrence.png" alt="Lawrence Humphrey" style="width: 56px; height: 56px; border-radius: 999px; display: block;">
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-family: 'Karla', sans-serif; font-weight: 600; font-size: 17px; color: #383f5c;">Lawrence Humphrey</span>
+            <span style="font-family: 'Karla', sans-serif; font-size: 15px; color: #6b6a7c;">Founder &amp; CEO of Pearl · Ex IBM Design for AI</span>
+          </div>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="next-steps" data-screen-label="Next steps" style="scroll-margin-top: 80px; display: flex; flex-direction: column; gap: 28px;">
+      <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 36px; margin: 0;">Next Steps</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+        <sc-for list="{{ nextSteps }}" as="ns" hint-placeholder-count="3">
+          <div style="background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-family: 'Playfair Display', serif; font-size: 28px; color: #f2a7c3;">{{ ns.n }}</span>
+            <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px; margin: 0;">{{ ns.title }}</h3>
+            <p style="font-size: 15px; line-height: 1.65; color: #4a4f68; margin: 0; text-wrap: pretty;">{{ ns.body }}</p>
+            <sc-if value="{{ ns.img }}" hint-placeholder-val="{{ false }}">
+              <img src="{{ ns.img }}" alt="{{ ns.title }}" style="width: 100%; border-radius: 12px; display: block; margin-top: 6px;">
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section data-screen-label="More work" style="display: flex; flex-direction: column; gap: 28px; padding-bottom: 120px;">
+      <p style="font-family: 'Playfair Display', serif; font-size: 28px; margin: 0;">Thank you for reading my case study!</p>
+      <a href="Moleskine%20Case%20Study.dc.html" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; background: #ffffff; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); border-radius: 24px; padding: 28px; color: inherit;" style-hover="box-shadow: 0 10px 28px rgba(196, 160, 112, 0.32);">
+        <img src="assets/moleskine.png" alt="Moleskine app on a tablet" style="flex: 1 1 260px; min-width: 0; max-width: 360px; display: block;">
+        <div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-family: 'Karla', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a7c;">Next case study</span>
+          <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 28px; margin: 0;">Moleskine →</h3>
+          <p style="font-size: 16px; line-height: 1.5; color: #4a4f68; margin: 0;">A social network app brought to you by a company known for their analog notebooks</p>
+        </div>
+      </a>
+    </section>
+
+    <footer data-screen-label="Footer" style="display: flex; flex-direction: column; align-items: center;">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; padding-bottom: 24px;">
+        <a href="mailto:Jessicamabrego@gmail.com" style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 26px; color: #383f5c;">Jessicamabrego@gmail.com</a>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <a href="https://www.linkedin.com/in/jessanders/" target="_blank" rel="noopener" aria-label="LinkedIn" style="width: 40px; height: 40px; border-radius: 999px; display: flex; align-items: center; justify-content: center; color: #383f5c; transition: color 0.2s ease, background 0.2s ease;" style-hover="color: #fdebd4; background: #383f5c;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg></a>
+          <a href="mailto:Jessicamabrego@gmail.com" aria-label="Email" style="width: 40px; height: 40px; border-radius: 999px; display: flex; align-items: center; justify-content: center; color: #383f5c; transition: color 0.2s ease, background 0.2s ease;" style-hover="color: #fdebd4; background: #383f5c;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></a>
+        </div>
+      </div>
+      <div style="width: 100%; border-top: 1.5px solid #8c8a99; display: flex; justify-content: center; gap: 24px; padding: 40px 0 44px;">
+        <a href="Home.dc.html" style="font-family: 'Karla', sans-serif; font-size: 15px; color: #6b6a7c;" style-hover="color: #383f5c;">Home</a>
+        <a href="About%20v2.dc.html" style="font-family: 'Karla', sans-serif; font-size: 15px; color: #6b6a7c;" style-hover="color: #383f5c;">About</a>
+        <a href="Resume.dc.html" style="font-family: 'Karla', sans-serif; font-size: 15px; color: #6b6a7c;" style-hover="color: #383f5c;">Resume</a>
+      </div>
+    </footer>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const NAV = [['overview', 'Overview'], ['problem', 'Problem'], ['solution', 'Solution'], ['research', 'Research'], ['design', 'Design'], ['testing', 'Testing'], ['outcomes', 'Outcomes'], ['next-steps', 'Next Steps']];
+const PRIO = [[14.9,14.2,4.81,6.17],[20.35,14.2,4.81,6.17],[26.44,14.2,4.81,6.17],[32.53,14.2,4.81,6.17],[38.94,14.2,4.81,6.17],[54.97,15.64,4.81,6.28],[61.7,15.64,4.89,6.28],[68.03,15.64,4.89,6.28],[74.84,15.64,4.81,6.28],[14.9,22.53,4.81,6.17],[20.35,22.53,4.81,6.17],[27.16,22.53,4.73,6.17],[33.49,22.53,4.89,6.17],[39.9,22.53,4.81,6.17],[54.97,23.56,4.81,6.17],[68.03,23.56,4.89,6.17],[61.7,23.77,4.89,6.28],[14.9,30.76,4.81,6.17],[21.23,30.76,4.81,6.17],[27.4,30.76,4.81,6.17],[34.78,30.86,4.81,6.17],[54.97,31.38,4.81,6.28],[61.7,31.38,4.89,6.17],[68.03,31.38,4.89,6.28],[54.97,39.2,4.81,6.28],[14.9,58.33,4.81,6.28],[22.28,58.33,4.89,6.28],[14.9,66.67,4.89,6.28]];
+const AFF = [
+  ['Including examples in first time creation process', 375, 73, 197, 182, '#dcc3f7'],
+  ['Keep navigation bar expanded so users can see what icons represent', 588, 25, 213, 210, '#dcd3fb'],
+  ['Change “Your next steps” to Start here to add your work/numbering steps to create portfolio', 277, 298, 213, 208, '#ddd5fb'],
+  ['Differentiating separate home pages; there should only be one home page', 63, 345, 198, 182, '#8599c7'],
+  ['Relocate “Create a New Portfolio” CTA button to the top', 517, 273, 214, 226, '#e3e3e3'],
+  ['Remove CTA from the bottom of landing page', 757, 352, 170, 158, '#ebc6f2'],
+  ['Users shouldn’t be able to add their work until they get started (create portfolio)', 941, 312, 187, 180, '#c0a8dc'],
+  ['Show percentages along with progress bar while creating portfolio to give users aprox time', 207, 545, 213, 228, '#c0a8dc'],
+  ['Distinctive ways to show where you’re at', 443, 573, 170, 158, '#ebc6f2'],
+  ['Option to delete portfolio', 627, 532, 183, 182, '#dcc3f7'],
+  ['Keep menu icon consistent; e.g. Pearl brand icon should represent home page, not the menu icon', 881, 526, 184, 194, '#e9e8f5'],
+  ['Onboarding is inside the portfolio page; move it to landing page', 566, 745, 185, 205, '#e9e8f5'],
+];
+
+class Component extends DCLogic {
+  state = { chartIn: false, slide: {} };
+  carousel(key, slides) {
+    const n = slides.length, i = ((this.state.slide[key] || 0) % n + n) % n, cur = slides[i];
+    const go = (j) => this.setState(s => ({ slide: { ...s.slide, [key]: ((j % n) + n) % n } }));
+    return {
+      img: cur[0], img2: cur[1], caption: cur[cur.length - 1] + '  ·  ' + (i + 1) + ' / ' + n,
+      prev: (e) => { e && e.stopPropagation && e.stopPropagation(); go(i - 1); },
+      next: (e) => { e && e.stopPropagation && e.stopPropagation(); go(i + 1); },
+      dots: slides.map((_, j) => ({ bg: j === i ? '#383f5c' : '#d9d2c6', go: () => go(j) })),
+    };
+  }
+  chartRef = React.createRef();
+  componentDidMount() {
+    this.startScreenScroll();
+    this.onScroll = () => {
+      const se = document.scrollingElement || document.documentElement, y = se.scrollTop, vh = window.innerHeight;
+      let active = NAV[0][0];
+      for (const [id] of NAV) { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top < vh * 0.35) active = id; }
+      const wide = window.innerWidth >= 1380, shown = y > 300;
+      if (active !== this.state.navActive || wide !== this.state.navWide || shown !== this.state.navShown) this.setState({ navActive: active, navWide: wide, navShown: shown });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onScroll);
+    this.onScroll();
+    const el = this.chartRef.current;
+    if (!el || !('IntersectionObserver' in window)) { this.setState({ chartIn: true }); return; }
+    this.io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { this.setState({ chartIn: true }); this.io.disconnect(); } }, { threshold: 0.2 });
+    this.io.observe(el);
+    this.fallback = setTimeout(() => this.setState({ chartIn: true }), 4000);
+  }
+  componentWillUnmount() { this.io && this.io.disconnect(); clearTimeout(this.fallback); clearInterval(this.scrollIv); window.removeEventListener('scroll', this.onScroll); window.removeEventListener('resize', this.onScroll); }
+  screenRef = React.createRef();
+  startScreenScroll() {
+    let dir = 1, pause = 60;
+    this.scrollIv = setInterval(() => {
+      const el = this.screenRef.current;
+      if (!el || this.holding) return;
+      if (pause > 0) { pause--; return; }
+      const max = el.scrollHeight - el.clientHeight;
+      if (max <= 0) return;
+      el.scrollTop = Math.max(0, Math.min(max, el.scrollTop + dir * 1.2));
+      if (el.scrollTop >= max - 0.5 || el.scrollTop <= 0.5) { dir = el.scrollTop >= max - 0.5 ? -1 : 1; pause = 70; }
+    }, 16);
+  }
+  renderVals() {
+    const on = this.state.chartIn;
+    const tapes = ['#e9e8f5', '#8999bf', '#c4a6e0', '#e9c6f1', '#b5adf5'];
+    const affinity = AFF.map(([text, x, y, w, h, bg], i) => ({
+      text, bg, x: (x / 11.4) + '%', y: (y / 9.8) + '%', w: (w / 11.4) + '%', h: (h / 9.8) + '%',
+      rot: (i % 2 ? 1.2 : -1.2) + 'deg', tape: tapes[i % 5], tapeRot: (i % 2 ? -3 : 3) + 'deg',
+      delay: (i * 0.08).toFixed(2) + 's', op: on ? 1 : 0, enter: on ? 'translateY(0) scale(1)' : 'translateY(24px) scale(0.55)',
+    }));
+    return {
+      chartRef: this.chartRef, affinity,
+      ...(() => {
+        const D = [["I don't know how to create one", 33.3, '#c9aef5'], ["I'm not sure what to include", 32.3, '#6a8fd6'], ["I didn't think it was necessary for my field", 15.1, '#98b2fb'], ['It seems too time consuming', 10.8, '#b9c8f5'], ["I don't have any work samples to showcase", 8.6, '#bda5dc']];
+        const total = D.reduce((t, d) => t + d[1], 0), f = this.state.pieFocus ?? 0;
+        let acc = 0;
+        const pie = D.map(([label, v, color], i) => { const len = v / total * 100, gap = 0.6; const s = { label, color, pct: v + '%', dash: (len - gap).toFixed(2) + ' ' + (100 - len + gap).toFixed(2), offset: (-acc).toFixed(2), sw: i === f ? 7.5 : 6, rowBg: i === f ? '#f6f1fd' : 'transparent', hover: () => this.setState({ pieFocus: i }) }; acc += len; return s; });
+        return { pie, pieFocus: { pct: D[f][1] + '%' }, pieClear: () => this.setState({ pieFocus: 0 }) };
+      })(),
+      stat: (() => { const S = [['66.7%', 'said they have never created a portfolio before'], ['33.3%', "said they don't know how to create one"], ['32.3%', "said they weren't sure what to include"]];
+        const n = S.length, i = ((this.state.slide.stat || 0) % n + n) % n;
+        const go = (j) => this.setState(st => ({ slide: { ...st.slide, stat: ((j % n) + n) % n } }));
+        return { value: S[i][0], label: S[i][1], prev: () => go(i - 1), next: () => go(i + 1), dots: S.map((_, j) => ({ bg: j === i ? '#383f5c' : '#d9d2c6', go: () => go(j) })) }; })(),
+      navWide: !!this.state.navWide, navNarrow: !this.state.navWide, navOp: this.state.navShown ? 1 : 0, navPe: this.state.navShown ? 'auto' : 'none',
+      navItems: NAV.map(([id, label]) => { const on = (this.state.navActive || 'overview') === id; return { id, label, color: on ? '#383f5c' : '#9a98a8', weight: on ? 600 : 400, bar: on ? '28px' : '12px', pillBg: on ? '#383f5c' : 'transparent', pillText: on ? '#ffffff' : '#6b6a7c',
+        go: (e) => { e.preventDefault(); const el = document.getElementById(id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' }); } }; }),
+      prioSpots: PRIO.map(([l, t, w, h]) => ({ l: l + '%', t: t + '%', w: w + '%', h: h + '%', bs: (10000 / w).toFixed(2) + '% ' + (10000 / h).toFixed(2) + '%', bp: (l / (100 - w) * 100).toFixed(3) + '% ' + (t / (100 - h) * 100).toFixed(3) + '%' })),
+      screenRef: this.screenRef, screenHold: () => { this.holding = true; }, screenRelease: () => { this.holding = false; },
+      c3: this.carousel('c3', [['assets/pearl/i25.png', 'Choose a style'], ['assets/pearl/i44.png', 'Mode & accent color']]),
+      c4: this.carousel('c4', [['assets/pearl/i34.png', 'Add a project'], ['assets/pearl/i35.png', 'Header image & name'], ['assets/pearl/i36.png', 'Guided sections & embeds']]),
+      c5: this.carousel('c5', [['assets/pearl/i37.png', 'Tested: style page'], ['assets/pearl/i38.png', 'Tested: start page'], ['assets/pearl/i39.png', 'Tested: example page']]),
+      tools: ['Figma', 'Optimal Workshop', 'Notion', 'Slack', 'Calendly', 'Google Suite', 'Canva'],
+      solutions: [
+        { n: '01', title: 'Small wins', body: 'Portfolio creation broken into manageable steps with real-time feedback, so users see their progress and stay motivated, tackling the high bounce rate and low retention.' },
+        { n: '02', title: 'Reasons to stay longer', body: 'Inspirational portfolio examples during onboarding, plus a progressive reveal of new tasks after the first case study, to push engagement past 3 minutes.' },
+        { n: '03', title: 'One clear way in', body: 'Multiple competing entry points consolidated into a single pathway, removing decision paralysis. Testing showed smoother onboarding with fewer abandons.' },
+      ],
+      process: [
+        { n: '1', label: 'Discovery' }, { n: '2', label: 'Research' }, { n: '3', label: 'Analyze Findings' },
+        { n: '4', label: 'Ideation & Design' }, { n: '5', label: 'Testing & Revising' }, { n: '6', label: 'Next Steps' },
+      ],
+      heuristics: [
+        { img: 'assets/pearl/i04.png', title: 'Overwhelming entry points', body: 'Four different ways to start a portfolio, each leading to different screens: inconsistent navigation and extra cognitive friction for first-time users.' },
+        { img: 'assets/pearl/i05.png', title: 'Inflexible draft management', body: 'No way to delete accidental drafts, leaving cluttered portfolio spaces and new users feeling out of control.' },
+        { img: 'assets/pearl/i06.png', title: 'Multiple home pages', body: "Users couldn't tell which \u201chome\u201d they were on or how to get back to the main landing page, breaking common web patterns." },
+      ],
+      insights: [
+        { title: 'Time efficiency', body: 'Building case studies shouldn\u2019t demand hours; a streamlined flow keeps people engaged.' },
+        { title: 'Personalization', body: 'Users want customization that reflects their professional identity and personal brand.' },
+        { title: 'Community', body: 'Networking with other professionals is a strong motivator for building a portfolio.' },
+        { title: 'Value', body: 'Platform choice hinges on weighing cost against the features provided.' },
+        { title: 'Real-time feedback', body: 'Live previews keep momentum up and reduce uncertainty while creating.' },
+      ],
+      vision: ['Clear steps and progression', 'More, smaller onboarding steps', 'A sense of progress via a bar and step count', 'Fewer buttons competing for attention'],
+      steps: [
+        { n: 'Step 1', title: 'Getting started with basic information', img: 'assets/pearl/i24.png', body: 'A single "Get Started" button opens onboarding, where users add work experience, skills, resume and LinkedIn, information they already know, so they start grounded and confident.' },
+        { n: 'Step 2', title: 'Portfolio examples', img: 'assets/pearl/i28.png', body: 'Users browse example portfolios for inspiration and a clear picture of the goal. A modal overlay keeps them anchored in the flow while they look.' },
+        { n: 'Step 3', title: 'Style customization for personal branding', img: 'assets/pearl/i33.png', body: 'Light or dark mode plus an accent color, a low-effort way to personalize, with live previews that show the portfolio taking shape.' },
+        { n: 'Step 4', title: 'Guided case study creation', img: 'assets/pearl/i36.png', body: 'Each section of the first case study is a clear step with prompts: header image, title, supporting details, and embeds from Figma, Excel and more.' },
+      ],
+      issues: [
+        { stat: '66%', body: 'of participants struggled with adding skills' },
+        { stat: '100%', body: "didn't realize they were viewing an example portfolio before creating their own" },
+        { stat: '66%', body: 'struggled with customizing their portfolio page' },
+      ],
+      findings: [
+        { n: 'Finding 1', title: 'Adding skills', img: 'assets/pearl/i41.png', body: 'Users could pick up to five skills but lacked prompts to add more. We added skill recommendations based on their uploaded resume.' },
+        { n: 'Finding 2', title: 'Clarifying portfolio examples', img: 'assets/pearl/i43.png', body: 'Every user mistook the examples for their own page. Moving them into a modal overlay made them distinct yet still easy to reach.' },
+        { n: 'Finding 3', title: 'Enhanced style customization', img: 'assets/pearl/i45.png', body: 'Mode and accent options were small and out of the way. A more prominent customization area with live updates gave users confidence in their choices.' },
+      ],
+      outcomes: [
+        { stat: '61.8%', body: 'bounce rate addressed with a streamlined, launched portfolio creation process' },
+        { stat: '66.7%', body: 'of users had never created a portfolio: research-backed solutions built for them' },
+        { stat: '32.3%', body: "weren't sure what to include, now guided by an intuitive step-by-step system" },
+      ],
+      nextSteps: [
+        { n: '01', title: 'Home page consistency', body: 'Unify the homepage and use the Pearl logo as a home button site-wide for predictable navigation.', img: 'assets/pearl/i26.png' },
+        { n: '02', title: 'Community building', body: 'A Behance-style community so new users can learn from and be inspired by peers.', img: 'assets/pearl/i28.png' },
+        { n: '03', title: 'Clarifying key terms', body: 'Participants were unsure what "case study" and "portfolio" meant; more research would sharpen the language.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
