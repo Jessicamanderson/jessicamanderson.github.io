@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Roboto:wght@400;500&family=Karla:wght@400;500;600&display=swap">
+<style>
+  body { margin: 0; background: #fdebd4; }
+  a { color: #383f5c; text-decoration: none; }
+  a:hover { color: #1f2438; }
+  input::placeholder, textarea::placeholder { color: #9a98a8; }
+</style>
+</helmet>
+<div data-screen-label="Let's Chat" style="background: #fdebd4; min-height: 100vh; font-family: 'Roboto', system-ui, sans-serif; color: #383f5c; overflow-x: hidden;">
+  <div style="max-width: 1120px; margin: 0 auto; padding: 56px 40px 0; display: flex; flex-direction: column;">
+    <header style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; align-items: center; gap: 14px; margin-left: calc(-1 * (max(0px, (100vw - 1120px) / 2) + 40px));">
+        <span style="flex: 0 0 calc(max(0px, (100vw - 1120px) / 2) + 26px); height: 3px; background: #383f5c;"></span>
+        <h1 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 56px; line-height: 1; margin: 0; color: #383f5c;">Let's Chat!</h1>
+      </div>
+      <a href="Home.dc.html" style="font-family: 'Playfair Display', serif; font-size: 18px; color: #383f5c; display: flex; align-items: center; gap: 8px; align-self: flex-start;" style-hover="color: #1f2438;"><span>⟵</span> Back</a>
+    </header>
+
+    <section data-screen-label="Contact form" style="display: flex; flex-wrap: wrap; gap: 48px 80px; padding: 88px 0 120px; align-items: stretch;">
+      <div style="flex: 1 1 300px; max-width: 440px; min-width: 0; min-height: 420px; position: relative;">
+        <img src="assets/saguaro-photo.png" alt="Saguaro cactus against a blue sky with clouds" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; border-radius: 4px;">
+      </div>
+      <div style="flex: 1.3 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 24px;">
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 36px; line-height: 1.15; margin: 0;">Get in touch!</h2>
+
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="background: #ffffff; border-radius: 20px; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); padding: 40px; display: flex; flex-direction: column; gap: 12px;">
+          <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 28px; margin: 0;">Thank you!</h3>
+          <p style="font-size: 17px; line-height: 1.6; color: #4a4f68; margin: 0;">Your message is on its way. I'll get back to you soon.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <form action="https://formsubmit.co/Jessicamabrego@gmail.com" method="POST" style="background: #ffffff; border-radius: 20px; box-shadow: 0 6px 20px rgba(196, 160, 112, 0.22), 0 1px 3px rgba(196, 160, 112, 0.18); padding: 36px; display: flex; flex-direction: column; gap: 20px;">
+          <input type="hidden" name="_subject" value="New message from your portfolio">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="{{ nextUrl }}">
+          <input type="text" name="_honey" style="display: none;" tabindex="-1" autocomplete="off">
+          <label style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-family: 'Karla', sans-serif; font-weight: 600; font-size: 15px; color: #383f5c;">Email</span>
+            <input type="email" name="email" required="required" placeholder="Your email" style="font-family: 'Roboto', sans-serif; font-size: 16px; color: #383f5c; background: #fdf7ef; border: 1.5px solid #ead9c2; border-radius: 10px; padding: 13px 14px; outline: none;" style-focus="border-color: #383f5c; background: #ffffff;">
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-family: 'Karla', sans-serif; font-weight: 600; font-size: 15px; color: #383f5c;">Name</span>
+            <input type="text" name="name" required="required" placeholder="Your name" style="font-family: 'Roboto', sans-serif; font-size: 16px; color: #383f5c; background: #fdf7ef; border: 1.5px solid #ead9c2; border-radius: 10px; padding: 13px 14px; outline: none;" style-focus="border-color: #383f5c; background: #ffffff;">
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-family: 'Karla', sans-serif; font-weight: 600; font-size: 15px; color: #383f5c;">Message</span>
+            <textarea name="message" required="required" rows="6" placeholder="Write your message here..." style="font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.5; color: #383f5c; background: #fdf7ef; border: 1.5px solid #ead9c2; border-radius: 10px; padding: 13px 14px; outline: none; resize: vertical;" style-focus="border-color: #383f5c; background: #ffffff;"></textarea>
+          </label>
+          <button type="submit" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-family: 'Karla', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.02em; color: #383f5c; background: #f2a7c3; border: none; border-radius: 6px; padding: 13px 24px; cursor: pointer; transition: background 0.25s ease, gap 0.25s ease, padding 0.25s ease;" style-hover="background: #e991b1; color: #1f2438; gap: 14px; padding-right: 18px;" style-focus="outline: 3px solid #383f5c; outline-offset: 4px;">Send message <span aria-hidden="true">→</span></button>
+          <p style="font-family: 'Karla', sans-serif; font-size: 15px; line-height: 1.6; color: #6b6a7c; margin: 4px 0 0;">Or email me directly at <a href="mailto:Jessicamabrego@gmail.com" style="color: #383f5c; text-decoration: underline; text-decoration-color: #f2a7c3; text-decoration-thickness: 2px; text-underline-offset: 3px;">Jessicamabrego@gmail.com</a> · <a href="https://www.linkedin.com/in/jessanders/" target="_blank" rel="noopener" style="color: #383f5c; text-decoration: underline; text-decoration-color: #f2a7c3; text-decoration-thickness: 2px; text-underline-offset: 3px;">LinkedIn</a></p>
+        </form>
+      </sc-if>
+      </div>
+    </section>
+
+    <footer data-screen-label="Footer" style="display: flex; flex-direction: column; align-items: center;">
+      <div style="width: 100%; border-top: 1.5px solid #8c8a99; display: flex; justify-content: center; gap: 24px; padding: 40px 0 44px;">
+        <a href="Home.dc.html" style="font-family: 'Karla', sans-serif; font-size: 15px; color: #6b6a7c;" style-hover="color: #383f5c;">Home</a>
+        <a href="About%20v2.dc.html" style="font-family: 'Karla', sans-serif; font-size: 15px; color: #6b6a7c;" style-hover="color: #383f5c;">About</a>
+        <a href="Resume.dc.html" style="font-family: 'Karla', sans-serif; font-size: 15px; color: #6b6a7c;" style-hover="color: #383f5c;">Resume</a>
+      </div>
+    </footer>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false, nextUrl: '' };
+  componentDidMount() {
+    this.setState({ sent: /[?&]sent=1/.test(window.location.search), nextUrl: window.location.origin + window.location.pathname + '?sent=1' });
+  }
+  renderVals() {
+    return { sent: this.state.sent, notSent: !this.state.sent, nextUrl: this.state.nextUrl };
+  }
+}
+</script>
+</body>
+</html>
